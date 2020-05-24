@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -496,8 +496,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153208696}
-  m_LocalRotation: {x: 0.08387897, y: -0.11866206, z: 0.010060554, w: 0.98933434}
-  m_LocalPosition: {x: 40.866528, y: 4.2094493, z: -7.222915}
+  m_LocalRotation: {x: 0.08387902, y: -0.118664205, z: 0.0100607425, w: 0.9893341}
+  m_LocalPosition: {x: 40.866554, y: 4.2094502, z: -7.222908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_Path: {fileID: 2116771011}
   m_UpdateMethod: 0
   m_PositionUnits: 1
-  m_Speed: 20
+  m_Speed: 10
   m_Position: 0
 --- !u!4 &476736326
 Transform:
@@ -1317,7 +1317,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476736324}
-  m_LocalRotation: {x: 0.08387897, y: -0.11866206, z: 0.010060554, w: 0.98933434}
+  m_LocalRotation: {x: 0.08387902, y: -0.118664205, z: 0.0100607425, w: 0.9893341}
   m_LocalPosition: {x: 39.247314, y: 3.04, z: -0.5700002}
   m_LocalScale: {x: 0.39693, y: 0.39693, z: 0.39693}
   m_Children:
@@ -21226,17 +21226,37 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4227d51ffc77b7c448d6fc2581a37a9d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9478c41a5203eca41a59b73291075ff8, type: 3}
---- !u!4 &1200327778 stripped
+--- !u!4 &1200327778
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9478c41a5203eca41a59b73291075ff8,
     type: 3}
   m_PrefabInstance: {fileID: 1200327777}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1200327779 stripped
+  m_GameObject: {fileID: 1768714968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2021831164}
+  - {fileID: 354079549}
+  m_Father: {fileID: 1251860366}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1200327779
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1200327777}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443155386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1251860366}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1204865270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21375,6 +21395,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c38c830f1a01cc2419486a2e550473ee, type: 3}
+--- !u!1 &1251860365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1200327777}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251860366}
+  m_Layer: 0
+  m_Name: Arwing (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1251860366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1200327777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251860365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1200327778}
+  - {fileID: 1200327779}
+  m_Father: {fileID: 1461654468}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1328497588
 GameObject:
   m_ObjectHideFlags: 0
@@ -21456,6 +21508,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1443155386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1200327777}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1200327779}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1461654467
 GameObject:
   m_ObjectHideFlags: 0
@@ -21486,7 +21554,7 @@ Transform:
   - {fileID: 1489860464}
   - {fileID: 696546548}
   - {fileID: 1054656282}
-  - {fileID: 1200327779}
+  - {fileID: 1251860366}
   - {fileID: 503139459}
   m_Father: {fileID: 963707866}
   m_RootOrder: 0
@@ -21740,6 +21808,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1768714968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1200327777}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1200327778}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &2021831163
 GameObject:
   m_ObjectHideFlags: 0
@@ -21901,7 +21985,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: -395.43304, y: 65.88719, z: -38.100857}
     roll: 0
-  - position: {x: -389.9737, y: 64.21176, z: -101.84036}
+  - position: {x: -343.5091, y: 64.21176, z: -83.70264}
     roll: 0
   - position: {x: -260.62134, y: 35.15973, z: -27.62381}
     roll: 0
@@ -21917,15 +22001,15 @@ MonoBehaviour:
     roll: 0
   - position: {x: -95.778076, y: 14.896829, z: -157.88673}
     roll: 0
-  - position: {x: -116.962585, y: 4.0112085, z: -226.42447}
+  - position: {x: -67.56485, y: 4.0112085, z: -236.96213}
     roll: 0
-  - position: {x: -223.75822, y: 33.880074, z: -324.37646}
+  - position: {x: -210.5372, y: 33.880074, z: -274.8519}
     roll: 0
-  - position: {x: -79.36708, y: 22.135933, z: -307.75903}
+  - position: {x: -177.97215, y: 22.135933, z: -393.44333}
     roll: 0
-  - position: {x: -23.193647, y: 74.74651, z: -266.04486}
+  - position: {x: -76.76906, y: 74.74651, z: -280.95355}
     roll: 0
-  - position: {x: 29.84842, y: 113.74381, z: -314.54874}
+  - position: {x: 29.84842, y: 80.53452, z: -314.54874}
     roll: 0
   - position: {x: 68.32712, y: 55.54962, z: -231.47885}
     roll: 0
