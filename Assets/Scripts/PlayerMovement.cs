@@ -110,12 +110,18 @@ public class PlayerMovement : MonoBehaviour
         blasterOffset -= blasterOffset/4;
 
         laser.transform.position = leftBlaster.transform.position;
-        laser.transform.rotation = Quaternion.LookRotation(AimReticle.position - leftBlaster.position - new Vector3(blasterOffset,0,0));
+
+        // Vector3 aimLocationLeft = transform.TransformPoint(AimReticle.localPosition - new Vector3(blasterOffset,0,0)) - leftBlaster.position ;
+        // Vector3 aimLocationRight = transform.TransformPoint(AimReticle.localPosition + new Vector3(blasterOffset,0,0)) - rightBlaster.position ;
+        Vector3 aimLocationLeft = AimReticle.TransformPoint(-new Vector3(.05f,0,0));
+        Vector3 aimLocationRight = AimReticle.TransformPoint(new Vector3(0.05f,0,0));
+
+        laser.transform.rotation = Quaternion.LookRotation(aimLocationLeft-leftBlaster.position);
         Destroy(laser,3);
 
         laser = Instantiate(laserPrefab);
         laser.transform.position = rightBlaster.transform.position; 
-        laser.transform.rotation = Quaternion.LookRotation(AimReticle.position - rightBlaster.position + new Vector3(blasterOffset,0,0));
+        laser.transform.rotation = Quaternion.LookRotation(aimLocationRight- rightBlaster.position);
         Destroy(laser,3);
     }
 
@@ -151,6 +157,15 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(aimTarget.position+transform.position, .5f);
         Gizmos.DrawSphere(aimTarget.position+transform.position, .15f);
+
+        float blasterOffset = AimReticle.transform.GetComponent<SpriteRenderer>().bounds.extents.x;
+        blasterOffset -= blasterOffset/4;
+
+        Vector3 aimLocationLeft = AimReticle.TransformPoint(-new Vector3(.05f,0,0))  ;
+        Vector3 aimLocationRight = AimReticle.TransformPoint( new Vector3(0.05f,0,0));
+
+        Gizmos.DrawSphere(aimLocationLeft, .2f);
+        Gizmos.DrawSphere(aimLocationRight , .2f);
 
     }
 
