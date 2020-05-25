@@ -186,6 +186,12 @@ public class PlayerMovement : MonoBehaviour
         dolly.m_Speed = x;
     }
 
+    void OnTriggerEnter(Collider other){
+        if(other.name == "Terrain"){
+            Debug.Log("Pam");
+        }
+    }
+
     // void SetCameraZoom(float zoom, float duration)
     // {
     //     cameraParent.DOLocalMove(new Vector3(0, 0, zoom), duration);
