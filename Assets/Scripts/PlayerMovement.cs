@@ -48,6 +48,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Weapons")]
     public GameObject laserPrefab;
 
+
+    public Vector3 velocity;
+    public Vector3 velocityVector;
+    private Vector3 prevPos = Vector3.zero;
+
     void Start()
     {
         playerModel = transform.GetChild(0);
@@ -56,8 +61,21 @@ public class PlayerMovement : MonoBehaviour
         // SetSpeed(forwardSpeed);
     }
 
+    void FixedUpdate()
+    {
+        velocity = (transform.position - prevPos);// / Time.fixedDeltaTime;
+        prevPos = transform.position;
+    }
+
     void Update()
     {
+
+        float fwdDotProduct = Vector3.Dot(transform.forward, velocity);
+        float upDotProduct = Vector3.Dot(transform.up, velocity);
+        float rightDotProduct = Vector3.Dot(transform.right, velocity);
+        velocityVector = new Vector3(rightDotProduct, upDotProduct, fwdDotProduct);
+
+
         h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Mouse X");
         float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
 
