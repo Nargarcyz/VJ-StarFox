@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class UiHandlerScript : MonoBehaviour
 {
 
-    public Image HealthBarPercent;
+
+
+    public UnityEngine.UI.Image HealthBarPercent;
     [Range(0.0f, 1.0f)]
     public float percent;
     // Start is called before the first frame update
@@ -20,6 +22,7 @@ public class UiHandlerScript : MonoBehaviour
     void Update()
     {
         HealthBarPercent.fillAmount = percent;
-        HealthBarPercent.color = new Color(1-percent,percent,0);
+        Color barColor = new Color(1 - percent, percent, 0);
+        HealthBarPercent.color = barColor;
     }
 }
