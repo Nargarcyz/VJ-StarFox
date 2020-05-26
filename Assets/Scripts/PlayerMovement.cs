@@ -1,10 +1,16 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
 using UnityEngine.Rendering.PostProcessing;
 
+
+enum WeaponTypes
+{
+    laser = 0, missile = 1
+}
 public class PlayerMovement : MonoBehaviour
 {
     private Transform playerModel;
@@ -47,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Weapons")]
     public GameObject laserPrefab;
+    private WeaponTypes activeWeapon = WeaponTypes.laser;
 
 
     public Vector3 velocity;
@@ -98,6 +105,12 @@ public class PlayerMovement : MonoBehaviour
 
         // if (Input.GetButtonUp("Fire3"))
         //     Break(false);
+
+        if (Input.GetButton("SwapWeapon"))
+        {
+            activeWeapon += 1;
+            if (Enum.GetNames(typeof(WeaponTypes)).Length -1 >= (int)activeWeapon) { }
+        }
 
         if( Input.GetButton("Fire1") && Time.time > nextFire){
             Shoot();
