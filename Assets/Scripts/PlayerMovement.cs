@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public bool joystick = true;
     public Transform leftBlaster;
     public Transform rightBlaster;
+    public Transform missileBay;
     public Transform AimReticle;
 
     [Space]
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Weapons")]
     public GameObject laserPrefab;
+    public GameObject missilePrefab;
     private WeaponTypes activeWeapon = WeaponTypes.laser;
     private float weaponChangeDelay = 1f;
     private float lastWeaponChange = 0;
@@ -152,7 +154,9 @@ public class PlayerMovement : MonoBehaviour
 				case WeaponTypes.missile:
 					if (lockedTarget != null)
 					{
-						
+						GameObject missile = Instantiate(missilePrefab);
+                        missile.GetComponent<HomingMissileScript>().setTarget(lockedTarget);
+                        missile.transform.position = missileBay.transform.position;
 						ui.GetComponent<UiHandlerScript>().ResetReticle();
 						lockedTarget = null;
 					}

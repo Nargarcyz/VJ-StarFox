@@ -8,11 +8,16 @@ public class HomingMissileScript : MonoBehaviour
     public GameObject target;
     private Rigidbody rb;
     public float missileSpeed = 100f;
+    public bool friendly = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
         
+    }
+
+    public void setTarget(GameObject target){
+        this.target = target;
     }
 
     // Update is called once per frame
@@ -23,7 +28,7 @@ public class HomingMissileScript : MonoBehaviour
         if (target != null)
         {
             
-            if (target.GetComponent<PlayerMovement>().isBarrelRolling())
+            if (!friendly && target.GetComponent<PlayerMovement>().isBarrelRolling())
             {
                 target = null;
                 return;
@@ -42,14 +47,23 @@ public class HomingMissileScript : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        if (other.tag == "Player" || other.tag == "Solid")
+        if (friendly)
         {
-            if (other.tag == "Player" && other.gameObject.GetComponent<PlayerMovement>().isBarrelRolling())
+            if (other.tag == "Enemy" || other.tag == "Solid")
             {
-                return;
+                Destroy(this.gameObject);
             }
-            Destroy(this.gameObject);
+        } else {
+            if (other.tag == "Player" || other.tag == "Solid")
+            {
+                if (other.tag == "Player" && other.gameObject.GetComponent<PlayerMovement>().isBarrelRolling())
+                {
+                    return;
+                }
+                Destroy(this.gameObject);
+            }
         }
+        
 
     }
 }

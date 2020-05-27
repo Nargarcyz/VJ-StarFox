@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  missileSpeed: 100
+  missileSpeed: 1500
+  friendly: 1
 --- !u!135 &8404619755451366469
 SphereCollider:
   m_ObjectHideFlags: 0
