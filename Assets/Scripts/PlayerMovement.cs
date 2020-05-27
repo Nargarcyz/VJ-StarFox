@@ -20,7 +20,11 @@ public class PlayerMovement : MonoBehaviour
     float h;
 
     private float fireSpeed = 0.1F;
-    private float nextFire = 0;
+    private float nextLaserFire = 0;
+
+	private GameObject lockedTarget = null;
+	private float targetLockTime = 0;
+	private float targetShootDelay = 1f;
 
     [Header("Settings")]
     public bool joystick = true;
@@ -41,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Public References")]
     public Transform aimTarget;
     public CinemachineDollyCart dolly;
+	public CinemachineVirtualCamera cinemachineVirtualCamera;
     public Transform cameraParent;
 
     [Space]
@@ -54,8 +59,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Weapons")]
     public GameObject laserPrefab;
     private WeaponTypes activeWeapon = WeaponTypes.laser;
+    private float weaponChangeDelay = 1f;
+    private float lastWeaponChange = 0;
 
 
+	[Space]
+	public Canvas ui;
+	[Space]
     public Vector3 velocity;
     public Vector3 velocityVector;
     private Vector3 prevPos = Vector3.zero;
@@ -90,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         if(!DOTween.IsTweening(playerModel) && boostMult != 1){
             boostMult = 1;
         }
-        LocalMove(h, v, xySpeed);
+        if(h!=0 || v!=0)LocalMove(h, v, xySpeed);
         RotationLook(h,v, lookSpeed);
         HorizontalLean(playerModel, h, maxLeanAngle, .1f);
 
@@ -108,14 +118,61 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton("SwapWeapon"))
         {
-            activeWeapon += 1;
-            if (Enum.GetNames(typeof(WeaponTypes)).Length -1 >= (int)activeWeapon) { }
-        }
+            if (Time.time - lastWeaponChange >= weaponChangeDelay)
+            {
+				activeWeapon += 1;
+				if (Enum.GetNames(typeof(WeaponTypes)).Length == (int)activeWeapon) { activeWeapon = 0; }
+				Debug.Log("Activeweapon: " + activeWeapon);
+				lastWeaponChange = Time.time;
+				ui.GetComponent<UiHandlerScript>().ResetReticle();
+				lockedTarget = null;
+            }
+            
+		}
 
-        if( Input.GetButton("Fire1") && Time.time > nextFire){
-            Shoot();
-            nextFire = Time.time + fireSpeed;
-        }
+		
+
+
+		if( Input.GetButton("Fire1")){
+			switch (activeWeapon)
+			{
+				case WeaponTypes.laser:
+					if(Time.time > nextLaserFire){
+						ShootLaser();
+						nextLaserFire = Time.time + fireSpeed;
+					}
+					break;
+				case WeaponTypes.missile:
+					if (lockedTarget != null)
+					{
+						
+						ui.GetComponent<UiHandlerScript>().ResetReticle();
+						lockedTarget = null;
+					}
+					break;
+				default:
+					break;
+
+
+			}
+		}
+
+		if (Input.GetButton("Fire2") && activeWeapon == WeaponTypes.missile)
+		{
+			Debug.Log("Searching");
+			GameObject newTarget = SearchMissileTarget();
+			if ((lockedTarget != null && newTarget != null) || lockedTarget == null)
+			{
+				lockedTarget = newTarget;
+			}
+		}
+
+		
+
+        // if( Input.GetButton("Fire1") && Time.time > nextLaserFire){
+        //     ShootLaser();
+        //     nextLaserFire = Time.time + fireSpeed;
+        // }
 
         if (Input.GetButtonDown("Roll"))
         {
@@ -129,12 +186,33 @@ public class PlayerMovement : MonoBehaviour
             BarrelRoll(dir);
         }
         
-        
+		if (/*activeWeapon == WeaponTypes.missile && */lockedTarget != null)
+		{
+			if(ui.GetComponent<UiHandlerScript>().ReticleGroup.alpha == 0) ui.GetComponent<UiHandlerScript>().ReticleGroup.alpha = 1;
+			Debug.Log("Target Locked");
+			Camera cam = CinemachineCore.Instance.FindPotentialTargetBrain(cinemachineVirtualCamera).OutputCamera;
+			ui.GetComponent<UiHandlerScript>().AimReticle(cam.WorldToScreenPoint(lockedTarget.transform.position + lockedTarget.transform.up*3));
+			
+		}
 
 
     }
 
-    void Shoot(){
+	GameObject SearchMissileTarget(){
+		LayerMask mask = (1<<11);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1000f,mask))
+        {
+            Debug.DrawRay(transform.position, transform.forward*Vector3.Distance(transform.position,hit.transform.position),Color.red,4f);
+			return hit.transform.gameObject;
+        } else {
+			return null;
+		}
+	}
+
+
+
+    void ShootLaser(){
 
         GameObject laser = Instantiate(laserPrefab);
         float blasterOffset = AimReticle.transform.GetComponent<SpriteRenderer>().bounds.extents.x;
@@ -142,10 +220,19 @@ public class PlayerMovement : MonoBehaviour
 
         laser.transform.position = leftBlaster.transform.position;
 
-        // Vector3 aimLocationLeft = transform.TransformPoint(AimReticle.localPosition - new Vector3(blasterOffset,0,0)) - leftBlaster.position ;
-        // Vector3 aimLocationRight = transform.TransformPoint(AimReticle.localPosition + new Vector3(blasterOffset,0,0)) - rightBlaster.position ;
-        Vector3 aimLocationLeft = AimReticle.TransformPoint(-new Vector3(.05f,0,0));
-        Vector3 aimLocationRight = AimReticle.TransformPoint(new Vector3(0.05f,0,0));
+
+
+
+
+        float distanceToReticle = Vector3.Distance(transform.position,AimReticle.position);
+        Vector3 aimLocationLeft = leftBlaster.position + leftBlaster.forward * distanceToReticle;
+        Vector3 aimLocationRight = rightBlaster.position + rightBlaster.forward * distanceToReticle;
+        aimLocationLeft.y = AimReticle.position.y;
+        aimLocationRight.y = AimReticle.position.y;
+
+
+        // Vector3 aimLocationLeft = AimReticle.TransformPoint(-new Vector3(.05f,0,0));
+        // Vector3 aimLocationRight = AimReticle.TransformPoint(new Vector3(0.05f,0,0));
 
         laser.transform.rotation = Quaternion.LookRotation(aimLocationLeft-leftBlaster.position);
         Destroy(laser,3);
@@ -154,6 +241,16 @@ public class PlayerMovement : MonoBehaviour
         laser.transform.position = rightBlaster.transform.position; 
         laser.transform.rotation = Quaternion.LookRotation(aimLocationRight- rightBlaster.position);
         Destroy(laser,3);
+
+
+        
+
+
+
+
+
+
+
     }
 
     void LocalMove(float x, float y, float speed)
@@ -188,6 +285,8 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(aimTarget.position+transform.position, .5f);
         Gizmos.DrawSphere(aimTarget.position+transform.position, .15f);
+
+
 
         float blasterOffset = AimReticle.transform.GetComponent<SpriteRenderer>().bounds.extents.x;
         blasterOffset -= blasterOffset/4;

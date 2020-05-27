@@ -6,7 +6,7 @@ public class TurretScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private float rotationSpeed = 200;
+    public float rotationSpeed = 200;
     public float projectileSpeed = 100;
     public float shotDelay = 0.1f;
     private float lastShotTime = 0;
@@ -42,6 +42,10 @@ public class TurretScript : MonoBehaviour
 
             if (focusedEntity != null)
             {
+                Debug.Log("Still focused");
+                if (RaycastCheckIsPlayer(focusedEntity) != "Player") return;
+                
+
                 float playerDistance = Vector3.Distance(turretHeadRotor.position, focusedEntity.transform.position);
                 float travelTime = playerDistance / (projectileSpeed * Time.fixedDeltaTime);
 
@@ -103,11 +107,32 @@ public class TurretScript : MonoBehaviour
 
     }
 
+    string RaycastCheckIsPlayer(GameObject player){
+
+        LayerMask mask = (1<<9);
+        mask |= (1<<10);
+        RaycastHit hit;
+        string returnTag = "null";
+        if (Physics.Raycast(turretHeadRotor.position, Vector3.Normalize(player.transform.position - turretHeadRotor.position), out hit, 1000f,mask))
+        {
+            Debug.DrawRay(turretHeadRotor.position, Vector3.Normalize(player.transform.position - turretHeadRotor.position)*Vector3.Distance(turretHeadRotor.position,hit.transform.position),Color.red,0.0f);
+            if(hit.transform.tag == "Player"){
+                returnTag =  "Player";
+            }
+        } 
+        return returnTag;
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
             //Debug.Log("Player Detected Entering at" + other.transform.position);
-            focusedEntity = other.gameObject;
+
+            if (RaycastCheckIsPlayer(other.gameObject) == "Player")
+            {
+                focusedEntity = other.gameObject;
+            }
         }
     }
 
@@ -119,5 +144,9 @@ public class TurretScript : MonoBehaviour
             focusedEntity = null;
         }
     }
-}
+
+
+
+}   
+
 

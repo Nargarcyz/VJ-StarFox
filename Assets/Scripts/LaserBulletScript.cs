@@ -37,23 +37,26 @@ public class LaserBulletScript : MonoBehaviour
     void OnTriggerEnter(Collider other){
         // 
         
-        if(other.tag == "Solid"){
+        if(other.tag == "Solid" || other.tag == "Enemy"){
+            
 
 
-            //VisualEffect sparks = Instantiate(sparkEffect);
-            //RaycastHit hit;
-            //if (Physics.Raycast(transform.position, transform.forward, out hit))
-            //{
+            
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit))
+            {
+               VisualEffect sparks = Instantiate(sparkEffect);
             //    Debug.Log("Point of contact: "+hit.point);
             //    Debug.Log(hit.normal);
-            //    Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
-            //    Debug.DrawRay(transform.position, transform.forward, Color.green);
-            //    sparks.transform.position = hit.point;
-            //    sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
+               Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
+               Debug.DrawRay(transform.position, transform.forward, Color.green);
+               sparks.transform.position = hit.point;
+               sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
+               Destroy(sparks,2);
 
-            //}
+            }
 
-            Destroy(this);
+            // Destroy(this);
             Destroy(this.gameObject);
 
             
