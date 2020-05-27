@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 6521408531991702517}
   - component: {fileID: 6521408531991702518}
   - component: {fileID: 6521408531991702519}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: TurretHead
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,10 +121,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6521408531991702505}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 24.08
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6521408532121342606
 GameObject:
@@ -138,9 +138,9 @@ GameObject:
   - component: {fileID: 6521408532121342602}
   - component: {fileID: 6521408532121342603}
   - component: {fileID: 6521408532121342604}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: LeftBlaster
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,8 +231,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6521408532360753857}
   - component: {fileID: 6521408532360753859}
-  - component: {fileID: 8592482169664492853}
   - component: {fileID: 5703687905419756106}
+  - component: {fileID: 363997221097041188}
   m_Layer: 11
   m_Name: LaserTurret
   m_TagString: Enemy
@@ -278,19 +278,6 @@ MonoBehaviour:
   restPosition: {fileID: 6521408533098132078}
   leftBlaster: {fileID: 3432339570384726816}
   rightBlaster: {fileID: 6681577422221301322}
---- !u!65 &8592482169664492853
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6521408532360753860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.388547, y: 4.1798134, z: 3.9909852}
-  m_Center: {x: -0.007450342, y: 1.5899067, z: -0.088315845}
 --- !u!54 &5703687905419756106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -307,6 +294,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &363997221097041188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521408532360753860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4402468, y: 3.7128448, z: 2.7816763}
+  m_Center: {x: -0.02065909, y: 1.3564224, z: 0.13476777}
 --- !u!1 &6521408532745168498
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,9 +319,9 @@ GameObject:
   - component: {fileID: 6521408532745168510}
   - component: {fileID: 6521408532745168511}
   - component: {fileID: 6521408532745168496}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: RightBlaster
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,9 +414,9 @@ GameObject:
   - component: {fileID: 6521408533005690900}
   - component: {fileID: 6521408533005690901}
   - component: {fileID: 6521408533005690902}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Shaft
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,9 +535,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6521408533569028979}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: TurretRotor
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,9 +570,9 @@ GameObject:
   - component: {fileID: 6521408533575144735}
   - component: {fileID: 6521408533575144720}
   - component: {fileID: 6521408533575144721}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Base
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -663,9 +663,9 @@ GameObject:
   - component: {fileID: 6521408533590824467}
   - component: {fileID: 6521408533590824468}
   - component: {fileID: 6521408533590824469}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: HeadBase
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

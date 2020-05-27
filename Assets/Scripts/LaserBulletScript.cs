@@ -14,6 +14,7 @@ public class LaserBulletScript : MonoBehaviour
     public ParticleSystem explosionEffect;
     public float lifetime = 3;
     public float speed = 100;
+    public bool friendly = true;
 
     public void setSpeed(float speed) {
         this.speed = speed;
@@ -36,30 +37,57 @@ public class LaserBulletScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){
         // 
-        
-        if(other.tag == "Solid" || other.tag == "Enemy"){
+        Debug.Log(other.tag);
+        if (friendly && (other.tag == "Solid" || other.tag == "Enemy"))
+        {
+
+                
+
+
+                
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit))
+                {
+                    VisualEffect sparks = Instantiate(sparkEffect);
+                    //    Debug.Log("Point of contact: "+hit.point);
+                    //    Debug.Log(hit.normal);
+                    Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
+                    Debug.DrawRay(transform.position, transform.forward, Color.green);
+                    sparks.transform.position = hit.point;
+                    sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
+                    Destroy(sparks,2);
+                    Destroy(this.gameObject);
+
+                }
+
+                Destroy(this);
+                
+
+         } 
+         else if(other.tag == "Solid" || other.tag == "Player"){
             
+                
 
 
-            
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit))
-            {
-               VisualEffect sparks = Instantiate(sparkEffect);
-            //    Debug.Log("Point of contact: "+hit.point);
-            //    Debug.Log(hit.normal);
-               Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
-               Debug.DrawRay(transform.position, transform.forward, Color.green);
-               sparks.transform.position = hit.point;
-               sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
-               Destroy(sparks,2);
+                
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit))
+                {
+                VisualEffect sparks = Instantiate(sparkEffect);
+                //    Debug.Log("Point of contact: "+hit.point);
+                //    Debug.Log(hit.normal);
+                Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
+                Debug.DrawRay(transform.position, transform.forward, Color.green);
+                sparks.transform.position = hit.point;
+                sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
+                Destroy(sparks,2);
 
-            }
+                }
 
-            // Destroy(this);
-            Destroy(this.gameObject);
+                // Destroy(this);
+                Destroy(this.gameObject);
 
-            
         }
+        
     }
 }

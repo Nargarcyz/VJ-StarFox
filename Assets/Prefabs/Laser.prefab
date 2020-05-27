@@ -113,6 +113,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 0}
   lifetime: 1
   speed: 100
+  friendly: 1
 --- !u!54 &6411487558674261928
 Rigidbody:
   m_ObjectHideFlags: 0

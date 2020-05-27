@@ -46,13 +46,13 @@ public class TurretScript : MonoBehaviour
                 if (RaycastCheckIsPlayer(focusedEntity) != "Player") return;
                 
 
-                float playerDistance = Vector3.Distance(turretHeadRotor.position, focusedEntity.transform.position);
+                float playerDistance = Vector3.Distance(turretHeadRotor.position, focusedEntity.transform.GetChild(0).transform.position);
                 float travelTime = playerDistance / (projectileSpeed * Time.fixedDeltaTime);
 
                 Vector3 playerVelocity = focusedEntity.GetComponent<PlayerMovement>().velocity;
                 Vector3 playerVelocityVector = focusedEntity.GetComponent<PlayerMovement>().velocityVector;
 
-                lastKnownLocation = focusedEntity.transform.position - turretHeadRotor.position + playerVelocityVector * travelTime;
+                lastKnownLocation = focusedEntity.transform.GetChild(0).transform.position - turretHeadRotor.position + playerVelocityVector * travelTime;
 
 
 
@@ -99,7 +99,6 @@ public class TurretScript : MonoBehaviour
     void ShootLaser(Transform src)
     {
         GameObject laser = Instantiate(projectile);
-
         
         laser.transform.position = src.position;
         laser.transform.rotation = src.rotation;
@@ -127,7 +126,7 @@ public class TurretScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-            //Debug.Log("Player Detected Entering at" + other.transform.position);
+            Debug.Log("Player Detected Entering at" + other.transform.position);
 
             if (RaycastCheckIsPlayer(other.gameObject) == "Player")
             {
