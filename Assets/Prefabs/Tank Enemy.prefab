@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3184287297176226912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113266808500288829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62189b6d9f18b924f9403d464c557b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CannonBase: {fileID: 7652749241260308288}
+  Cannon: {fileID: 2383009417396281088}
+--- !u!54 &6789291688132736566
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113266808500288829}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6516182639252009596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113266808500288829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12191726, y: 0.06026899, z: 0.040501352}
+  m_Center: {x: 0.00092309475, y: -0.00020488261, z: 0.01956239}
+--- !u!135 &544651399728432543
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378020969833428493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.16694099
+  m_Center: {x: 6.277065e-32, y: -3.046354e-18, z: 0.102125585}
 --- !u!1001 &268509790184875060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7,6 +63,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7217828390678641911, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Name
+      value: Wheels
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03b4a9e36a8fd914c8b2addd304a7714,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,5 +143,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Name
+      value: Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695666576454475813, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Name
+      value: Tracks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469484624682501897, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b4a9e36a8fd914c8b2addd304a7714, type: 3}
+--- !u!1 &8113266808500288829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+    type: 3}
+  m_PrefabInstance: {fileID: 268509790184875060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2378020969833428493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2502203975881118265, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+    type: 3}
+  m_PrefabInstance: {fileID: 268509790184875060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7652749241260308288 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1617365279978105996, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+    type: 3}
+  m_PrefabInstance: {fileID: 268509790184875060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2383009417396281088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2498326036907817780, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+    type: 3}
+  m_PrefabInstance: {fileID: 268509790184875060}
+  m_PrefabAsset: {fileID: 0}

@@ -56,15 +56,14 @@ public class LaserBulletScript : MonoBehaviour
                     sparks.transform.position = hit.point;
                     sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
                     Destroy(sparks,2);
-                    Destroy(this.gameObject);
 
                 }
 
-                Destroy(this);
+                Destroy(this.gameObject);
                 
 
          } 
-         else if(other.tag == "Solid" || other.tag == "Player"){
+        else if( !friendly && (other.tag == "Solid" || other.tag == "Player")){
             
                 
 

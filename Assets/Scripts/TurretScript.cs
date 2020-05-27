@@ -42,7 +42,7 @@ public class TurretScript : MonoBehaviour
 
             if (focusedEntity != null)
             {
-                Debug.Log("Still focused");
+                // Debug.Log("Still focused");
                 if (RaycastCheckIsPlayer(focusedEntity) != "Player") return;
                 
 
@@ -56,7 +56,7 @@ public class TurretScript : MonoBehaviour
 
 
 
-                Debug.Log("Velocity: " + playerVelocityVector);
+                // Debug.Log("Velocity: " + playerVelocityVector);
 
 
 
