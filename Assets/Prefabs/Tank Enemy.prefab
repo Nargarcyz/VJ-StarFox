@@ -43,7 +43,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CannonBase: {fileID: 7652749241260308288}
   Cannon: {fileID: 2383009417396281088}
-  projectile: {fileID: 0}
+  missileExit: {fileID: 1199604236711756108}
+  projectile: {fileID: 7498416685379510208, guid: 6e3ae50720c0d134b9eb7fde07a92e65,
+    type: 3}
   projectileSpeed: 100
   shotDelay: 0.1
 --- !u!1818360609 &3761545275171800166
@@ -128,6 +130,36 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8801096229666527136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199604236711756108}
+  m_Layer: 0
+  m_Name: MissileExit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1199604236711756108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801096229666527136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0541, z: 0.00074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2383009417396281088}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &268509790184875060
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -32,13 +32,16 @@ public class HomingMissileScript : MonoBehaviour
             {
                 target = null;
                 return;
+            } else {
+                transform.LookAt(target.transform.position);
             }
-            // transform.LookAt(target.transform.position);
-            transform.DOLookAt(target.transform.position,0.3f);
+            // transform.DOLookAt(target.transform.position,0.3f);
             // rb.AddForce(transform.forward * missileSpeed);
             // rb.velocity = transform.forward * missileSpeed;
         } else if (target == null) {
-            transform.DORotate(new Vector3(Random.Range(-270,270),Random.Range(-270,270),Random.Range(-270,270)),1);
+            float rotateAngle = 3f;
+            // transform.Rotate(new Vector3(Random.Range(-rotateAngle,rotateAngle),Random.Range(-rotateAngle,rotateAngle),Random.Range(-rotateAngle,rotateAngle)));
+            // transform.DORotate(new Vector3(Random.Range(-rotateAngle,rotateAngle),Random.Range(-rotateAngle,rotateAngle),0),1f);
             // transform.Rotate(new Vector3(Random.Range(0,3),Random.Range(0,3),Random.Range(0,3)));
             // rb.AddForce(transform.forward * missileSpeed);
             // rb.velocity = transform.forward * missileSpeed;

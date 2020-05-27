@@ -8,13 +8,15 @@ public class TankScript : MonoBehaviour
 
     public Transform CannonBase;
     public Transform Cannon;
+    public Transform missileExit;
 
     [Space]
     public GameObject projectile = null;
     [Space]
 
     public float projectileSpeed = 100;
-    public float shotDelay = 0.1f;
+    public float shotDelay = 2000f;
+    private float lastShotTime = 0;
 
     private GameObject focusedEntity = null;
     // private Vector3 lastKnownLocation = Vector3.zero;
@@ -60,6 +62,17 @@ public class TankScript : MonoBehaviour
                     // Cannon.Rotate(new Vector3(180,0,0));
                     // CannonBase.Rotate(Vector3.up, -90);
                 }
+
+                
+                if(Time.time > lastShotTime){
+                    GameObject missile = Instantiate(projectile);
+                    missile.GetComponent<HomingMissileScript>().setTarget(focusedEntity);
+                    missile.transform.position = missileExit.position;
+                    Destroy(missile, 10);
+                    lastShotTime = Time.time + shotDelay;
+				}
+
+
             }   
         }
     }
