@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 velocityVector;
     private Vector3 prevPos = Vector3.zero;
 
+    private bool barrelRolling = false;
+
     void Start()
     {
         playerModel = transform.GetChild(0);
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         prevPos = transform.position;
     }
 
+    private float barrelRollTime = 0;
     void Update()
     {
 
@@ -130,7 +133,11 @@ public class PlayerMovement : MonoBehaviour
             
 		}
 
-		
+		if (barrelRolling && (Time.time - barrelRollTime >= 0.5f))
+        {
+            barrelRolling = false;
+            barrelRollTime = 0;
+        }
 
 
 		if( Input.GetButton("Fire1")){
@@ -299,10 +306,17 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public bool isBarrelRolling(){
+        return barrelRolling;
+    }
+
+    
     public void BarrelRoll(int dir)
     {
         if (!DOTween.IsTweening(playerModel))
         {
+            barrelRollTime = Time.time;
+            barrelRolling = true;
             playerModel.DOLocalRotate(new Vector3(playerModel.localEulerAngles.x, playerModel.localEulerAngles.y, 360 * -dir), .5f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
             float angleBetweenVelocityAndRoll = Vector3.Angle(new Vector3(0,h,0),new Vector3(0,dir,0));
             Debug.Log(angleBetweenVelocityAndRoll);
