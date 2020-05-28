@@ -47,7 +47,7 @@ public class TurretScript : MonoBehaviour
             if (focusedEntity != null)
             {
                 // Debug.Log("Still focused");
-                if (RaycastCheckIsPlayer(focusedEntity) != "Player") return;
+                // 
                 
 
                 float playerDistance = Vector3.Distance(turretHeadRotor.position, focusedEntity.transform.GetChild(0).transform.position);
@@ -89,7 +89,8 @@ public class TurretScript : MonoBehaviour
             }
 
             if(focusedEntity != null)
-            {
+            {   
+                if (RaycastCheckIsPlayer(focusedEntity) != "Player") return;
                 if (Time.time - lastShotTime >= shotDelay)
                 {
                     ShootLaser(leftBlaster);
@@ -133,16 +134,16 @@ public class TurretScript : MonoBehaviour
         if (other.tag == "Player") {
             // Debug.Log("Player Detected Entering at" + other.transform.position);
 
-            if (RaycastCheckIsPlayer(other.gameObject) == "Player")
-            {
-                focusedEntity = other.gameObject;
-            }
+            focusedEntity = other.gameObject;
+            // if (RaycastCheckIsPlayer(other.gameObject) == "Player")
+            // {
+            // }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player" && other.gameObject == focusedEntity)
+        if (other.tag == "Player")
         {
             //Debug.Log("Player Detected Leaving at" + other.transform.position);
             focusedEntity = null;

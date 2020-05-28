@@ -77,12 +77,13 @@ public class LaserBulletScript : MonoBehaviour
                 if (other.tag == "Player" && !(other.gameObject.GetComponent<PlayerMovement>().isBarrelRolling()))
                 {
                     other.gameObject.GetComponent<PlayerMovement>().DealDamage(1);
-                } else if (other.tag == "Solid")
-                {
-                    
-                } else {
-                    return;
                 }
+                // } else if (other.tag == "Solid")
+                // {
+                    
+                // } else {
+                //     return;
+                // }
 
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit))

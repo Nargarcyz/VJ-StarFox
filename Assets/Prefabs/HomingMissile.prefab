@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  rb: {fileID: 0}
   missileSpeed: 4000
   friendly: 1
 --- !u!135 &8404619755451366469

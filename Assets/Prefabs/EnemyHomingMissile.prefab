@@ -77,5 +77,10 @@ PrefabInstance:
       propertyPath: friendly
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8677855563236036746, guid: 55d493ca682a821448ddedde6f59c86d,
+        type: 3}
+      propertyPath: missileSpeed
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55d493ca682a821448ddedde6f59c86d, type: 3}

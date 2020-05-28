@@ -20,6 +20,10 @@ public class HomingMissileScript : MonoBehaviour
         this.target = target;
     }
 
+    public void setSpeed(float speed){
+        missileSpeed = speed;
+    }
+
     // Update is called once per frame
     void Update()
     {

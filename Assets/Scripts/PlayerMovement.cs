@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform rightBlaster;
     public Transform missileBay;
     public Transform AimReticle;
+    
 
     [Space]
 
@@ -232,6 +233,7 @@ public class PlayerMovement : MonoBehaviour
                             missile.GetComponent<HomingMissileScript>().setTarget(lockedTarget);
                             missile.transform.position = missileBay.transform.position;
                             missile.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0,100,0));
+                            missile.GetComponent<HomingMissileScript>().setSpeed(4000);
                             uiHandler.ResetReticle();
                             lockedTarget = null;
                         }
