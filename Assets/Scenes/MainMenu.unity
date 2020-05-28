@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -613,14 +613,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1145681352}
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: LoadLevel
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Escenario1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &360884645
@@ -746,7 +746,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 468904208}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1145681352}
+        m_MethodName: LoadLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Escenario2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &468904208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,8 +1485,7 @@ MonoBehaviour:
   camera: {fileID: 694762540}
   focusedObject: {fileID: 7824081445230979849}
   distance: 10
-  loadingSpinner: {fileID: 1659553676}
-  SpinnerGroup: {fileID: 1659553675}
+  loadingSpinner: {fileID: 1659553673}
   levelSelector: {fileID: 1553623732}
 --- !u!1 &1201541976
 GameObject:
@@ -2210,7 +2220,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2025408023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1145681352}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2025408023
 MonoBehaviour:
   m_ObjectHideFlags: 0
