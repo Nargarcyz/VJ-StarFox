@@ -80,6 +80,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float currentHp;
     private float maxHp = 100;
+    private float naturalHealthRegenDelay = 2f;
+    private float peaceTime = 3f;
+    private float lastHitTime = 0;
+    private float naturalRegenLastTime = 0;
 
     void Start()
     {
@@ -125,6 +129,14 @@ public class PlayerMovement : MonoBehaviour
             explosion.transform.position = playerModel.transform.position;
             explosion.GetComponent<VisualEffect>().Play();
             Destroy(this.transform.parent.gameObject);
+        }
+        Debug.Log("Health :"  + currentHp);
+        if (currentHp <= maxHp*3/4 && (Time.time - naturalRegenLastTime >= naturalHealthRegenDelay) && (Time.time - lastHitTime >= peaceTime))
+        {   
+            Debug.Log("Healed");
+            naturalRegenLastTime = Time.time;
+            currentHp = currentHp + 5f;
+            uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
         }
 
         
@@ -504,6 +516,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void DealDamage(int damage){
+        lastHitTime = Time.time;
         currentHp -= damage;
         uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
         

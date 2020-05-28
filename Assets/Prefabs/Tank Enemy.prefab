@@ -187,6 +187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheels
       objectReference: {fileID: 0}
+    - target: {fileID: -4349876608052867759, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e29d7b4d3dadd244b45678557e77471, type: 2}
     - target: {fileID: -4216859302048453862, guid: 03b4a9e36a8fd914c8b2addd304a7714,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -257,11 +262,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: -2397996973257786244, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ffb7bfc28635fd4d895d86da1782e14, type: 2}
     - target: {fileID: -1617365279978105996, guid: 03b4a9e36a8fd914c8b2addd304a7714,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ffb7bfc28635fd4d895d86da1782e14, type: 2}
     - target: {fileID: -927199367670048503, guid: 03b4a9e36a8fd914c8b2addd304a7714,
         type: 3}
       propertyPath: m_Name
@@ -277,6 +292,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: -113181020801827196, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e29d7b4d3dadd244b45678557e77471, type: 2}
+    - target: {fileID: 1066910053003865102, guid: 03b4a9e36a8fd914c8b2addd304a7714,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e29d7b4d3dadd244b45678557e77471, type: 2}
     - target: {fileID: 2498326036907817780, guid: 03b4a9e36a8fd914c8b2addd304a7714,
         type: 3}
       propertyPath: m_LocalRotation.x
