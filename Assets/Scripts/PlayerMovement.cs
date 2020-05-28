@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Settings")]
     public bool joystick = false;
+    [Header("Weapon locations")]
     public Transform leftBlaster;
     public Transform rightBlaster;
     public Transform missileBay;
     public Transform AimReticle;
     
 
-    [Space]
 
     [Header("Parameters")]
     public float xySpeed = 18;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Space]
 
-    [Header("Public References")]
+    [Header("Camera Settings")]
     public Transform aimTarget;
     public CinemachineDollyCart dolly;
 	public CinemachineVirtualCamera cinemachineVirtualCamera;
@@ -56,10 +56,6 @@ public class PlayerMovement : MonoBehaviour
     [Space]
 
     [Header("Particles")]
-    public ParticleSystem trail;
-    public ParticleSystem circle;
-    // public ParticleSystem barrel;
-    public ParticleSystem stars;
     public GameObject explosionEffect;
     
     [Header("Weapons")]
@@ -71,9 +67,13 @@ public class PlayerMovement : MonoBehaviour
 
 
 	[Space]
+    [Header("UI")]
 	public UiHandlerScript uiHandler;
 	[Space]
+
+    [HideInInspector]
     public Vector3 velocity;
+    [HideInInspector]
     public Vector3 velocityVector;
     private Vector3 prevPos = Vector3.zero;
 
@@ -181,17 +181,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Brake(Input.GetAxis("Brake"));
         }
-        // if (Input.GetButtonDown("Action"))
-        //     Boost(true);
-
-        // if (Input.GetButtonUp("Action"))
-        //     Boost(false);
-
-        // if (Input.GetButtonDown("Fire3"))
-        //     Break(true);
-
-        // if (Input.GetButtonUp("Fire3"))
-        //     Break(false);
 
         if (Input.GetButton("SwapWeapon"))
         {
@@ -257,12 +246,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		
 
-        // if( Input.GetButton("Fire1") && Time.time > nextLaserFire){
-        //     ShootLaser();
-        //     nextLaserFire = Time.time + fireSpeed;
-        // }
 
         if (Input.GetButtonDown("Roll"))
         {
@@ -320,9 +304,6 @@ public class PlayerMovement : MonoBehaviour
         aimLocationLeft.y = AimReticle.position.y;
         aimLocationRight.y = AimReticle.position.y;
 
-
-        // Vector3 aimLocationLeft = AimReticle.TransformPoint(-new Vector3(.05f,0,0));
-        // Vector3 aimLocationRight = AimReticle.TransformPoint(new Vector3(0.05f,0,0));
 
         laser.transform.rotation = Quaternion.LookRotation(aimLocationLeft-leftBlaster.position);
         Destroy(laser,3);
@@ -402,9 +383,7 @@ public class PlayerMovement : MonoBehaviour
             barrelRolling = true;
             playerModel.DOLocalRotate(new Vector3(playerModel.localEulerAngles.x, playerModel.localEulerAngles.y, 360 * -dir), .5f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
             float angleBetweenVelocityAndRoll = Vector3.Angle(new Vector3(0,h,0),new Vector3(0,dir,0));
-            // Debug.Log(angleBetweenVelocityAndRoll);
             if(angleBetweenVelocityAndRoll == 0) boostMult = 1.3f;
-            // barrel.Play();
         }
     }
 
@@ -416,16 +395,6 @@ public class PlayerMovement : MonoBehaviour
     private float collisionDamageDelay = 0.1f;
     private float lastCollisionTime = 0;
 
-    // void OnTriggerEnter(Collider other){
-    //     if(other.name == "Terrain" || other.tag == "Solid"){
-    //         // Debug.Log("Pam");
-    //         if (lastCollisionTime <= Time.time)
-    //         {
-    //             lastCollisionTime = Time.time + collisionDamageDelay;
-    //             DealDamage(10);
-    //         }
-    //     }
-    // }
 
     void OnTriggerStay(Collider other){
         if(other.name == "Terrain" || other.tag == "Solid"){
@@ -458,50 +427,9 @@ public class PlayerMovement : MonoBehaviour
         Camera.main.GetComponent<PostProcessVolume>().profile.GetSetting<ChromaticAberration>().intensity.value = x;
     }
 
-
-    // void Boost(bool state)
-    // {
-
-    //     if (state)
-    //     {
-    //         cameraParent.GetComponentInChildren<CinemachineImpulseSource>().GenerateImpulse();
-    //         // trail.Play();
-    //         // circle.Play();
-    //     }
-    //     else
-    //     {
-    //         // trail.Stop();
-    //         // circle.Stop();
-    //     }
-    //     // trail.GetComponent<TrailRenderer>().emitting = state;
-
-    //     float origFov = state ? 40 : 55;
-    //     float endFov = state ? 55 : 40;
-    //     float origChrom = state ? 0 : 1;
-    //     float endChrom = state ? 1 : 0;
-    //     float origDistortion = state ? 0 : -30;
-    //     float endDistorton = state ? -30 : 0;
-    //     float starsVel = state ? -20 : -1;
-    //     float speed = state ? forwardSpeed * 2 : forwardSpeed;
-    //     float zoom = state ? -7 : 0;
-
-    //     DOVirtual.Float(origChrom, endChrom, .5f, Chromatic);
-    //     DOVirtual.Float(origFov, endFov, .5f, FieldOfView);
-    //     DOVirtual.Float(origDistortion, endDistorton, .5f, DistortionAmount);
-    //     var pvel = stars.velocityOverLifetime;
-    //     pvel.z = starsVel;
-
-    //     DOVirtual.Float(dolly.m_Speed, speed, .15f, SetSpeed);
-    //     SetCameraZoom(zoom, .4f);
-    // }
-
     void Boost(float mult){
         float speed = forwardSpeed * Mathf.Pow(2,mult);
         float zoom = -7 * mult;
-
-
-        // float origFov = 55 - (15 * mult);
-        // float endFov = 40 + (15 * mult);
 
 
         bool state = mult > 0.3;
@@ -517,14 +445,6 @@ public class PlayerMovement : MonoBehaviour
         SetCameraZoom(zoom, .4f);
     }
 
-    // void Break(bool state)
-    // {
-    //     float speed = state ? forwardSpeed / 3 : forwardSpeed;
-    //     float zoom = state ? 3 : 0;
-
-    //     DOVirtual.Float(dolly.m_Speed, speed, .15f, SetSpeed);
-    //     SetCameraZoom(zoom, .4f);
-    // }
     void Brake(float mult)
     {
         float speed = forwardSpeed * Mathf.Pow(1f/3f,mult);

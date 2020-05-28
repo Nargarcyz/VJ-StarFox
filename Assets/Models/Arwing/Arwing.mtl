@@ -1,0 +1,167 @@
+# Blender MTL File: 'None'
+# Material Count: 15
+
+newmtl M_7CF8406C_c.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.345098 0.384314 0.345098
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\M_7CF8406C_c.png
+
+newmtl Material1.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.917647 0.886275 0.807843
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material1.png
+
+newmtl Material10.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.070588 0.066667 0.050980
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material10.png
+
+newmtl Material11.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.141176 0.239216 0.486275
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material11.png
+
+newmtl Material12.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.294118 0.368627 0.568627
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material12.png
+
+newmtl Material14.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.352941 0.345098 0.352941
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material14.png
+
+newmtl Material15.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.125490 0.125490 0.125490
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material15.png
+
+newmtl Material2.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.894118 0.890196 0.741176
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material2.png
+
+newmtl Material3.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.847059 0.827451 0.698039
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material3.png
+
+newmtl Material4.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.282353 0.282353 0.278431
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material4.png
+
+newmtl Material5.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.909804 0.827451 0.772549
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material5.png
+
+newmtl Material6.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.270588 0.274510 0.231373
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material6.png
+
+newmtl Material7.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.117647 0.113725 0.058824
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material7.png
+
+newmtl Material8.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.843137 0.839216 0.709804
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material8.png
+
+newmtl Material9.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.894118 0.870588 0.752941
+Ks 0.330000 0.330000 0.330000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd d:\\Documents\\3D Stuff\\VJ 3D\\Arwing\\Arwing\\Material9.png
