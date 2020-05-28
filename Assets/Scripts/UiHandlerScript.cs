@@ -19,9 +19,11 @@ public class UiHandlerScript : MonoBehaviour
     public Image Reticle;
 
     [Space]
+    public CanvasGroup pauseMenu;
+    [Space]
     public CanvasGroup DestroyedPanel;
     
-
+    private bool gamePaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,22 @@ public class UiHandlerScript : MonoBehaviour
         // HealthBarPercent.fillAmount = percent;
         Color barColor = new Color(1 - HealthBarPercent.fillAmount, HealthBarPercent.fillAmount, 0);
         HealthBarPercent.color = barColor;
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (gamePaused)
+            {
+                Time.timeScale = 1;
+                pauseMenu.alpha = 0;
+                pauseMenu.blocksRaycasts = false;
+            } else {
+                Time.timeScale = 0;
+                pauseMenu.alpha = 1;
+                pauseMenu.blocksRaycasts = true;
+            }
+            gamePaused = !gamePaused;
+        }
+
     }
 
     public void AimReticle(Vector3 position){
@@ -61,6 +79,9 @@ public class UiHandlerScript : MonoBehaviour
         DestroyedPanel.alpha = 0;
         DestroyedPanel.interactable = false;
         DestroyedPanel.blocksRaycasts = false;
+        pauseMenu.alpha = 0;
+        pauseMenu.blocksRaycasts = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);   
     }
     public void GoToMenu(){

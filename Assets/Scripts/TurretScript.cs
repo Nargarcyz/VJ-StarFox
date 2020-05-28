@@ -129,7 +129,7 @@ public class TurretScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-            Debug.Log("Player Detected Entering at" + other.transform.position);
+            // Debug.Log("Player Detected Entering at" + other.transform.position);
 
             if (RaycastCheckIsPlayer(other.gameObject) == "Player")
             {

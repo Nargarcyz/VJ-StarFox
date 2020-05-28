@@ -37,7 +37,7 @@ public class LaserBulletScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){
         // 
-        Debug.Log(other.tag);
+        // Debug.Log(other.tag);
         if (friendly && (other.tag == "Solid" || other.tag == "Enemy"))
         {
 

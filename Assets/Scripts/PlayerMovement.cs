@@ -358,7 +358,7 @@ public class PlayerMovement : MonoBehaviour
             barrelRolling = true;
             playerModel.DOLocalRotate(new Vector3(playerModel.localEulerAngles.x, playerModel.localEulerAngles.y, 360 * -dir), .5f, RotateMode.LocalAxisAdd).SetEase(Ease.OutSine);
             float angleBetweenVelocityAndRoll = Vector3.Angle(new Vector3(0,h,0),new Vector3(0,dir,0));
-            Debug.Log(angleBetweenVelocityAndRoll);
+            // Debug.Log(angleBetweenVelocityAndRoll);
             if(angleBetweenVelocityAndRoll == 0) boostMult = 1.3f;
             // barrel.Play();
         }

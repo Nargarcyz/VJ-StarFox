@@ -26,7 +26,11 @@ public class TankScript : MonoBehaviour
     {
         if(projectile != null)
         {
-            projectile.GetComponent<LaserBulletScript>().setSpeed(projectileSpeed);
+            LaserBulletScript lbs = projectile.GetComponent<LaserBulletScript>();
+            if (lbs != null)
+            {
+                lbs.setSpeed(projectileSpeed);
+            }
         }
     }
 
@@ -96,7 +100,7 @@ public class TankScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
-            Debug.Log("Player Detected Entering at" + other.transform.position);
+            // Debug.Log("Player Detected Entering at" + other.transform.position);
 
             if (RaycastCheckIsPlayer(other.gameObject) == "Player")
             {
