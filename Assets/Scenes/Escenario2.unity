@@ -1111,6 +1111,11 @@ PrefabInstance:
       propertyPath: m_Path
       value: 
       objectReference: {fileID: 2116771011}
+    - target: {fileID: 2580602512760713799, guid: 1a7d277293fa5594d8980ded0145e8ac,
+        type: 3}
+      propertyPath: m_Speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2580602513089890823, guid: 1a7d277293fa5594d8980ded0145e8ac,
         type: 3}
       propertyPath: uiHandler
@@ -1266,12 +1271,12 @@ PrefabInstance:
     - target: {fileID: 344131863490494571, guid: ac2a98138c82b514d97bb1ea18bebb3b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -799.99994
+      value: -800.00006
       objectReference: {fileID: 0}
     - target: {fileID: 344131863490494571, guid: ac2a98138c82b514d97bb1ea18bebb3b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -427.55487
+      value: -420.21542
       objectReference: {fileID: 0}
     - target: {fileID: 2354581140323033433, guid: ac2a98138c82b514d97bb1ea18bebb3b,
         type: 3}
