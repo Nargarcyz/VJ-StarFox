@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 	private GameObject lockedTarget = null;
 	private float targetLockTime = 0;
 	private float targetShootDelay = 1f;
+    private float lastMissileTime = 0;
 
     [Header("Settings")]
     public bool joystick = false;
@@ -189,11 +190,17 @@ public class PlayerMovement : MonoBehaviour
 				case WeaponTypes.missile:
 					if (lockedTarget != null)
 					{
-						GameObject missile = Instantiate(missilePrefab);
-                        missile.GetComponent<HomingMissileScript>().setTarget(lockedTarget);
-                        missile.transform.position = missileBay.transform.position;
-						uiHandler.ResetReticle();
-						lockedTarget = null;
+                        if (Time.time >= lastMissileTime)
+                        {
+                            lastMissileTime = Time.time + targetShootDelay;
+                            GameObject missile = Instantiate(missilePrefab);
+                            missile.GetComponent<HomingMissileScript>().setTarget(lockedTarget);
+                            missile.transform.position = missileBay.transform.position;
+                            missile.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0,100,0));
+                            uiHandler.ResetReticle();
+                            lockedTarget = null;
+                        }
+						
 					}
 					break;
 				default:
@@ -369,9 +376,28 @@ public class PlayerMovement : MonoBehaviour
         dolly.m_Speed = x;
     }
 
-    void OnTriggerEnter(Collider other){
-        if(other.name == "Terrain"){
-            Debug.Log("Pam");
+    private float collisionDamageDelay = 0.1f;
+    private float lastCollisionTime = 0;
+
+    // void OnTriggerEnter(Collider other){
+    //     if(other.name == "Terrain" || other.tag == "Solid"){
+    //         // Debug.Log("Pam");
+    //         if (lastCollisionTime <= Time.time)
+    //         {
+    //             lastCollisionTime = Time.time + collisionDamageDelay;
+    //             DealDamage(10);
+    //         }
+    //     }
+    // }
+
+    void OnTriggerStay(Collider other){
+        if(other.name == "Terrain" || other.tag == "Solid"){
+            Debug.Log("Staying in solid");
+            if (Time.time - lastCollisionTime >= collisionDamageDelay)
+            {
+                lastCollisionTime = Time.time;
+                DealDamage(1);
+            }
         }
     }
 

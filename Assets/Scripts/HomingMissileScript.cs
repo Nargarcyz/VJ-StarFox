@@ -6,7 +6,7 @@ using DG.Tweening;
 public class HomingMissileScript : MonoBehaviour
 {
     public GameObject target;
-    private Rigidbody rb;
+    public Rigidbody rb;
     public float missileSpeed = 100f;
     public bool friendly = true;
     // Start is called before the first frame update
@@ -54,6 +54,10 @@ public class HomingMissileScript : MonoBehaviour
         {
             if (other.tag == "Enemy" || other.tag == "Solid")
             {
+                if (other.tag == "Enemy")
+                {
+                    other.gameObject.GetComponent<HealthManager>().DealDamage(25);
+                }
                 Destroy(this.gameObject);
             }
         } else {

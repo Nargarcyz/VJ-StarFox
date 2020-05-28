@@ -85,6 +85,12 @@ public class UiHandlerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);   
     }
     public void GoToMenu(){
+        DestroyedPanel.alpha = 0;
+        DestroyedPanel.interactable = false;
+        DestroyedPanel.blocksRaycasts = false;
+        pauseMenu.alpha = 0;
+        pauseMenu.blocksRaycasts = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
