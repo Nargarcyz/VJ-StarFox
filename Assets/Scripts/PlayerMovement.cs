@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	private float targetShootDelay = 1f;
 
     [Header("Settings")]
-    public bool joystick = true;
+    public bool joystick = false;
     public Transform leftBlaster;
     public Transform rightBlaster;
     public Transform missileBay;
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Parameters")]
     public float xySpeed = 18;
     public float lookSpeed = 340;
-    public float forwardSpeed = 6;
+    public float forwardSpeed = 15;
     public float maxLeanAngle = 10;
 
     [Space]
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 	[Space]
-	public Canvas ui;
+	public UiHandlerScript uiHandler;
 	[Space]
     public Vector3 velocity;
     public Vector3 velocityVector;
@@ -74,12 +74,16 @@ public class PlayerMovement : MonoBehaviour
 
     private bool barrelRolling = false;
 
+    private float currentHp;
+    private float maxHp = 100;
+
     void Start()
     {
         playerModel = transform.GetChild(0);
         rigidbody = transform.GetComponent<Rigidbody>();
         Physics.IgnoreCollision(laserPrefab.GetComponent<Collider>(),GetComponent<Collider>());
         // SetSpeed(forwardSpeed);
+        currentHp = maxHp;
     }
 
     void FixedUpdate()
@@ -92,14 +96,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+        if (currentHp <= 0)
+        {
+            uiHandler.PlayerDestroyed();
+            Destroy(this.transform.parent.gameObject);
+        }
+
         float fwdDotProduct = Vector3.Dot(transform.forward, velocity);
         float upDotProduct = Vector3.Dot(transform.up, velocity);
         float rightDotProduct = Vector3.Dot(transform.right, velocity);
         velocityVector = new Vector3(rightDotProduct, upDotProduct, fwdDotProduct);
 
 
-        h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Mouse X");
-        float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Mouse Y");
+        h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal KB");
+        float v = joystick ? Input.GetAxis("Vertical") : Input.GetAxis("Vertical KB");
 
 
         if(!DOTween.IsTweening(playerModel) && boostMult != 1){
@@ -109,6 +119,16 @@ public class PlayerMovement : MonoBehaviour
         RotationLook(h,v, lookSpeed);
         HorizontalLean(playerModel, h, maxLeanAngle, .1f);
 
+
+        
+        if (Input.GetAxis("Boost") > 0)
+        {
+            Boost(Input.GetAxis("Boost"));
+        }
+        else if (Input.GetAxis("Brake") > 0)
+        {
+            Brake(Input.GetAxis("Brake"));
+        }
         // if (Input.GetButtonDown("Action"))
         //     Boost(true);
 
@@ -129,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 				if (Enum.GetNames(typeof(WeaponTypes)).Length == (int)activeWeapon) { activeWeapon = 0; }
 				Debug.Log("Activeweapon: " + activeWeapon);
 				lastWeaponChange = Time.time;
-				ui.GetComponent<UiHandlerScript>().ResetReticle();
+				uiHandler.ResetReticle();
 				lockedTarget = null;
             }
             
@@ -142,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-		if( Input.GetButton("Fire1")){
+		if( Input.GetButton("FireWeapon")){
 			switch (activeWeapon)
 			{
 				case WeaponTypes.laser:
@@ -157,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 						GameObject missile = Instantiate(missilePrefab);
                         missile.GetComponent<HomingMissileScript>().setTarget(lockedTarget);
                         missile.transform.position = missileBay.transform.position;
-						ui.GetComponent<UiHandlerScript>().ResetReticle();
+						uiHandler.ResetReticle();
 						lockedTarget = null;
 					}
 					break;
@@ -168,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		if (Input.GetButton("Fire2") && activeWeapon == WeaponTypes.missile)
+		if (Input.GetButton("LockMissile") && activeWeapon == WeaponTypes.missile)
 		{
 			Debug.Log("Searching");
 			GameObject newTarget = SearchMissileTarget();
@@ -199,10 +219,10 @@ public class PlayerMovement : MonoBehaviour
         
 		if (/*activeWeapon == WeaponTypes.missile && */lockedTarget != null)
 		{
-			if(ui.GetComponent<UiHandlerScript>().ReticleGroup.alpha == 0) ui.GetComponent<UiHandlerScript>().ReticleGroup.alpha = 1;
+			if(uiHandler.ReticleGroup.alpha == 0) uiHandler.ReticleGroup.alpha = 1;
 			Debug.Log("Target Locked");
 			Camera cam = CinemachineCore.Instance.FindPotentialTargetBrain(cinemachineVirtualCamera).OutputCamera;
-			ui.GetComponent<UiHandlerScript>().AimReticle(cam.WorldToScreenPoint(lockedTarget.transform.position + lockedTarget.transform.up*3));
+			uiHandler.AimReticle(cam.WorldToScreenPoint(lockedTarget.transform.position + lockedTarget.transform.up*3));
 			
 		}
 
@@ -340,25 +360,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // void SetCameraZoom(float zoom, float duration)
-    // {
-    //     cameraParent.DOLocalMove(new Vector3(0, 0, zoom), duration);
-    // }
+    void SetCameraZoom(float zoom, float duration)
+    {
+        cameraParent.DOLocalMove(new Vector3(0, 0, zoom), duration);
+    }
 
-    // void DistortionAmount(float x)
-    // {
-    //     Camera.main.GetComponent<PostProcessVolume>().profile.GetSetting<LensDistortion>().intensity.value = x;
-    // }
+    void DistortionAmount(float x)
+    {
+        Camera.main.GetComponent<PostProcessVolume>().profile.GetSetting<LensDistortion>().intensity.value = x;
+    }
 
-    // void FieldOfView(float fov)
-    // {
-    //     cameraParent.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = fov;
-    // }
+    void FieldOfView(float fov)
+    {
+        cameraParent.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = fov;
+    }
 
-    // void Chromatic(float x)
-    // {
-    //     Camera.main.GetComponent<PostProcessVolume>().profile.GetSetting<ChromaticAberration>().intensity.value = x;
-    // }
+    void Chromatic(float x)
+    {
+        Camera.main.GetComponent<PostProcessVolume>().profile.GetSetting<ChromaticAberration>().intensity.value = x;
+    }
 
 
     // void Boost(bool state)
@@ -367,15 +387,15 @@ public class PlayerMovement : MonoBehaviour
     //     if (state)
     //     {
     //         cameraParent.GetComponentInChildren<CinemachineImpulseSource>().GenerateImpulse();
-    //         trail.Play();
-    //         circle.Play();
+    //         // trail.Play();
+    //         // circle.Play();
     //     }
     //     else
     //     {
-    //         trail.Stop();
-    //         circle.Stop();
+    //         // trail.Stop();
+    //         // circle.Stop();
     //     }
-    //     trail.GetComponent<TrailRenderer>().emitting = state;
+    //     // trail.GetComponent<TrailRenderer>().emitting = state;
 
     //     float origFov = state ? 40 : 55;
     //     float endFov = state ? 55 : 40;
@@ -397,6 +417,28 @@ public class PlayerMovement : MonoBehaviour
     //     SetCameraZoom(zoom, .4f);
     // }
 
+    void Boost(float mult){
+        float speed = forwardSpeed * Mathf.Pow(2,mult);
+        float zoom = -7 * mult;
+
+
+        // float origFov = 55 - (15 * mult);
+        // float endFov = 40 + (15 * mult);
+
+
+        bool state = mult > 0.3;
+        float origFov = state ? 40 : 55;
+        float endFov = state ? 55 : 40;
+
+        float newFov = 40 + (15 * mult);
+        
+        FieldOfView(newFov);
+        
+
+        DOVirtual.Float(dolly.m_Speed, speed, .15f, SetSpeed);
+        SetCameraZoom(zoom, .4f);
+    }
+
     // void Break(bool state)
     // {
     //     float speed = state ? forwardSpeed / 3 : forwardSpeed;
@@ -405,4 +447,18 @@ public class PlayerMovement : MonoBehaviour
     //     DOVirtual.Float(dolly.m_Speed, speed, .15f, SetSpeed);
     //     SetCameraZoom(zoom, .4f);
     // }
+    void Brake(float mult)
+    {
+        float speed = forwardSpeed * Mathf.Pow(1f/3f,mult);
+        float zoom = 3 * mult;
+
+        DOVirtual.Float(dolly.m_Speed, speed, .15f, SetSpeed);
+        SetCameraZoom(zoom, .4f);
+    }
+
+    public void DealDamage(int damage){
+        currentHp -= damage;
+        uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
+        
+    }
 }

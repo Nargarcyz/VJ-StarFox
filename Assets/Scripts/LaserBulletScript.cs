@@ -59,6 +59,11 @@ public class LaserBulletScript : MonoBehaviour
 
                 }
 
+                if (other.tag == "Enemy")
+                {
+                    other.gameObject.GetComponent<HealthManager>().DealDamage(10);
+                }
+
                 Destroy(this.gameObject);
                 
 
@@ -72,15 +77,20 @@ public class LaserBulletScript : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit))
                 {
-                VisualEffect sparks = Instantiate(sparkEffect);
-                //    Debug.Log("Point of contact: "+hit.point);
-                //    Debug.Log(hit.normal);
-                Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
-                Debug.DrawRay(transform.position, transform.forward, Color.green);
-                sparks.transform.position = hit.point;
-                sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
-                Destroy(sparks,2);
+                    VisualEffect sparks = Instantiate(sparkEffect);
+                    //    Debug.Log("Point of contact: "+hit.point);
+                    //    Debug.Log(hit.normal);
+                    Debug.DrawLine(hit.point,hit.point+hit.normal*2,Color.red,4);
+                    Debug.DrawRay(transform.position, transform.forward, Color.green);
+                    sparks.transform.position = hit.point;
+                    sparks.transform.rotation = Quaternion.LookRotation(hit.normal);
+                    Destroy(sparks,2);
 
+                }
+
+                if (other.tag == "Player")
+                {
+                    other.gameObject.GetComponent<PlayerMovement>().DealDamage(1);
                 }
 
                 // Destroy(this);

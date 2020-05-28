@@ -62,7 +62,11 @@ public class HomingMissileScript : MonoBehaviour
                 if (other.tag == "Player" && other.gameObject.GetComponent<PlayerMovement>().isBarrelRolling())
                 {
                     return;
+                } else if (other.tag == "Player"){
+                    other.gameObject.GetComponent<PlayerMovement>().DealDamage(5);
                 }
+                Debug.Log("Hit :" + other.tag);
+
                 Destroy(this.gameObject);
             }
         }

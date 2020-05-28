@@ -25,6 +25,7 @@ public class TurretScript : MonoBehaviour
 
     private GameObject focusedEntity = null;
     private Vector3 lastKnownLocation = Vector3.zero;
+
     void Start()
     {
         if(projectile != null)
@@ -36,6 +37,8 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (turretHeadRotor != null)
         {
             

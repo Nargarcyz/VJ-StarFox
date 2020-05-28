@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 [ExecuteInEditMode]
@@ -17,6 +18,10 @@ public class UiHandlerScript : MonoBehaviour
     public CanvasGroup ReticleGroup;
     public Image Reticle;
 
+    [Space]
+    public CanvasGroup DestroyedPanel;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +32,8 @@ public class UiHandlerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthBarPercent.fillAmount = percent;
-        Color barColor = new Color(1 - percent, percent, 0);
+        // HealthBarPercent.fillAmount = percent;
+        Color barColor = new Color(1 - HealthBarPercent.fillAmount, HealthBarPercent.fillAmount, 0);
         HealthBarPercent.color = barColor;
     }
 
@@ -40,6 +45,23 @@ public class UiHandlerScript : MonoBehaviour
     public void ResetReticle(){
         ReticleGroup.alpha = 0;
         Reticle.transform.position = Vector3.zero;
+    }
+
+    public void UpdateHealth(float percent){
+        HealthBarPercent.fillAmount = percent;
+    }
+
+    public void PlayerDestroyed(){
+        DestroyedPanel.alpha = 1;
+        DestroyedPanel.interactable = true;
+        DestroyedPanel.blocksRaycasts = true;
+     
+    }
+    public void ReloadLevel(){
+        DestroyedPanel.alpha = 0;
+        DestroyedPanel.interactable = false;
+        DestroyedPanel.blocksRaycasts = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
