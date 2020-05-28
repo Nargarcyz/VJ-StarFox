@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using DG.Tweening;
 using Cinemachine;
 using UnityEngine.Rendering.PostProcessing;
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem circle;
     // public ParticleSystem barrel;
     public ParticleSystem stars;
+    public GameObject explosionEffect;
     
     [Header("Weapons")]
     public GameObject laserPrefab;
@@ -78,7 +80,16 @@ public class PlayerMovement : MonoBehaviour
 
     private float currentHp;
     private float maxHp = 100;
+    private float naturalHealthRegenDelay = 2f;
+    private float peaceTime = 3f;
+    private float lastHitTime = 0;
+    private float naturalRegenLastTime = 0;
+    
 
+    private float keyPressCooldown = 0.5f;
+    private float lastKeyPress = 0;
+
+    private bool godMode = false;
     void Start()
     {
         playerModel = transform.GetChild(0);
@@ -97,6 +108,22 @@ public class PlayerMovement : MonoBehaviour
     private float barrelRollTime = 0;
     void Update()
     {
+        float fwdDotProduct = Vector3.Dot(playerModel.transform.forward, velocity);
+        float upDotProduct = Vector3.Dot(playerModel.transform.up, velocity);
+        float rightDotProduct = Vector3.Dot(playerModel.transform.right, velocity);
+        velocityVector = new Vector3(rightDotProduct, upDotProduct, fwdDotProduct);
+
+
+        // if (Input.GetKey(KeyCode.RightControl) && Input.GetKeyDown(KeyCode.G) && (Time.time - lastKeyPress >= keyPressCooldown))
+        if (Input.GetKey(KeyCode.RightControl))
+        {   
+            if (Input.GetKeyUp(KeyCode.G))
+            {
+                Debug.Log("Godmode active");
+                godMode = !godMode;
+                
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -115,13 +142,21 @@ public class PlayerMovement : MonoBehaviour
         if (currentHp <= 0)
         {
             uiHandler.PlayerDestroyed();
+            GameObject explosion = Instantiate(explosionEffect);
+            explosion.transform.position = playerModel.transform.position;
+            explosion.GetComponent<VisualEffect>().Play();
             Destroy(this.transform.parent.gameObject);
         }
+        
+        if (currentHp <= maxHp*3/4 && (Time.time - naturalRegenLastTime >= naturalHealthRegenDelay) && (Time.time - lastHitTime >= peaceTime))
+        {   
+            
+            naturalRegenLastTime = Time.time;
+            currentHp = currentHp + 5f;
+            uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
+        }
 
-        float fwdDotProduct = Vector3.Dot(transform.forward, velocity);
-        float upDotProduct = Vector3.Dot(transform.up, velocity);
-        float rightDotProduct = Vector3.Dot(transform.right, velocity);
-        velocityVector = new Vector3(rightDotProduct, upDotProduct, fwdDotProduct);
+        
 
 
         h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal KB");
@@ -498,6 +533,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void DealDamage(int damage){
+        if (godMode)
+        {
+            return;
+        }
+        lastHitTime = Time.time;
         currentHp -= damage;
         uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
         
