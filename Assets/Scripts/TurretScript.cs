@@ -55,7 +55,7 @@ public class TurretScript : MonoBehaviour
 
                 Vector3 playerVelocity = focusedEntity.GetComponent<PlayerMovement>().velocity;
                 Vector3 playerVelocityVector = focusedEntity.GetComponent<PlayerMovement>().velocityVector;
-                Debug.Log("PlayerVelocityVector: " + playerVelocity);
+                // Debug.Log("PlayerVelocityVector: " + playerVelocity);
 
                 lastKnownLocation = focusedEntity.transform.GetChild(0).transform.position - turretHeadRotor.position + playerVelocityVector * travelTime;
 
