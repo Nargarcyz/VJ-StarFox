@@ -14,13 +14,15 @@ public class MainMenuScript : MonoBehaviour
     public GameObject loadingSpinner;
     public CanvasGroup levelSelector;
 
+    public Button Level1Button;
+    public Button Level2Button;
 
     void Start()
     {
         camera.transform.position = focusedObject.transform.position;
         camera.transform.LookAt(focusedObject.transform,camera.transform.up);
         camera.transform.position = camera.transform.position + new Vector3(0,3,distance);
-        
+        Level2Button.interactable = false;
     }
 
     // Update is called once per frame
@@ -35,6 +37,17 @@ public class MainMenuScript : MonoBehaviour
         camera.transform.RotateAround(focusedObject.transform.position, Vector3.up, 5 * Time.deltaTime);
         // camera.transform.Translate(Vector3.right * Time.deltaTime);
         
+        
+        if (GameStatus.Instance.Level1Completed)
+        {
+            Level1Button.GetComponent<Image>().color = Color.green;
+            Level2Button.interactable = true;
+        }
+        if (GameStatus.Instance.Level2Completed)
+        {
+            Level2Button.GetComponent<Image>().color = Color.green;
+        }
+
 
         if (levelLoadingOp != null && !levelLoadingOp.isDone)
         {
@@ -74,4 +87,6 @@ public class MainMenuScript : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
+
+    
 }

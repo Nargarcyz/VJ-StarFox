@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 
 enum WeaponTypes
@@ -95,6 +96,20 @@ public class PlayerMovement : MonoBehaviour
     private float barrelRollTime = 0;
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            string name = SceneManager.GetActiveScene().name;
+            if (name == "Escenario1")
+            {
+                GameStatus.Instance.CompletedLevel(0);
+                Debug.Log("Escenario1 set as completed");
+            } else if (name == "Escenario2"){
+                GameStatus.Instance.CompletedLevel(1);
+                Debug.Log("Escenario2 set as completed");
+            }
+            // GameStatus.Instance.CompletedLevel((name == "Escenario1") ? 0 : 1);
+        }
 
         if (currentHp <= 0)
         {
