@@ -62,6 +62,7 @@ public class UiHandlerScript : MonoBehaviour
         DestroyedPanel.interactable = false;
         DestroyedPanel.blocksRaycasts = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
 }
