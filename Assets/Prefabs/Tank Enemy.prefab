@@ -29,6 +29,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.061720513, y: 0.12199783, z: 0.03156699}
   m_Center: {x: -0.0011757588, y: -0.00076513295, z: 0.024664363}
+--- !u!114 &419905469663929710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113266808500288829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae7c4e42dc81584c827dc7fc6f92a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  explosionEffect: {fileID: 3644332026896942348, guid: 5229fbc806f2b314e8a121b87c998365,
+    type: 3}
 --- !u!114 &3184287297176226912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,19 +63,6 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 100
   shotDelay: 0.1
---- !u!114 &419905469663929710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8113266808500288829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae7c4e42dc81584c827dc7fc6f92a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 100
 --- !u!1818360609 &3761545275171800166
 RotationConstraint:
   m_ObjectHideFlags: 0

@@ -321,6 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 50
+  explosionEffect: {fileID: 3644332026896942348, guid: 5229fbc806f2b314e8a121b87c998365,
+    type: 3}
 --- !u!1 &6521408532745168498
 GameObject:
   m_ObjectHideFlags: 0

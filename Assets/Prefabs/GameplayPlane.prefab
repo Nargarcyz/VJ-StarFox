@@ -271,6 +271,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   circle: {fileID: 0}
   stars: {fileID: 0}
+  explosionEffect: {fileID: 3644332026896942348, guid: 5229fbc806f2b314e8a121b87c998365,
+    type: 3}
   laserPrefab: {fileID: 8330847134408916168, guid: 22b19d1742810e14798bb6ff278569d7,
     type: 3}
   missilePrefab: {fileID: 3348117731686666246, guid: 55d493ca682a821448ddedde6f59c86d,

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using DG.Tweening;
 using Cinemachine;
 using UnityEngine.Rendering.PostProcessing;
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem circle;
     // public ParticleSystem barrel;
     public ParticleSystem stars;
+    public GameObject explosionEffect;
     
     [Header("Weapons")]
     public GameObject laserPrefab;
@@ -97,6 +99,10 @@ public class PlayerMovement : MonoBehaviour
     private float barrelRollTime = 0;
     void Update()
     {
+        float fwdDotProduct = Vector3.Dot(transform.forward, velocity);
+        float upDotProduct = Vector3.Dot(transform.up, velocity);
+        float rightDotProduct = Vector3.Dot(transform.right, velocity);
+        velocityVector = new Vector3(rightDotProduct, upDotProduct, fwdDotProduct);
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -115,13 +121,13 @@ public class PlayerMovement : MonoBehaviour
         if (currentHp <= 0)
         {
             uiHandler.PlayerDestroyed();
+            GameObject explosion = Instantiate(explosionEffect);
+            explosion.transform.position = playerModel.transform.position;
+            explosion.GetComponent<VisualEffect>().Play();
             Destroy(this.transform.parent.gameObject);
         }
 
-        float fwdDotProduct = Vector3.Dot(transform.forward, velocity);
-        float upDotProduct = Vector3.Dot(transform.up, velocity);
-        float rightDotProduct = Vector3.Dot(transform.right, velocity);
-        velocityVector = new Vector3(rightDotProduct, upDotProduct, fwdDotProduct);
+        
 
 
         h = joystick ? Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal KB");
