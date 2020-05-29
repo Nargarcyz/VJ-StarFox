@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2571,31 +2571,27 @@ MonoBehaviour:
 
     Controls:
 
-    - WASD or  Left Joystick
-    to move the Arwing.
+    - WASD or  Left Joystick to move the Arwing.
 
-    - Q/E or LB/RB to Barrel Roll to the Left/Right. If
-    moving in that same direction, you obtain a small bo
+    - Q/E or LB/RB to Barrel Roll to the Left/Right. If moving in that same direction,
+    you obtain a small bo
 
     ost.
 
-    - Left Shift/Left
-    Control or  RT/LT for boosting/braking.
+    - Left Shift/Left Control or  RT/LT for boosting/braking.
 
     - Left click or X button for shooting.
 
-    -
-    Right click or B button for locking into a target. Required for shooting missiles.
+    - Right click or B button for locking into a target. Required for shooting missiles.
 
 
     CHEATS:
 
 
-    -
-    Pressing C in any level will mark it as complete
+    - Pressing C in any level will mark it as complete
 
-    - Pressing Right Control
-    + G enables GodMode, negating any damage done to the player.'
+    - Pressing Right Control + G enables GodMode, negating any damage done to the
+    player.'
 --- !u!222 &1057216422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2694,6 +2690,7 @@ GameObject:
   - component: {fileID: 1145681349}
   - component: {fileID: 1145681348}
   - component: {fileID: 1145681352}
+  - component: {fileID: 1145681353}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2807,6 +2804,106 @@ MonoBehaviour:
   settingsWindow: {fileID: 1678736353}
   Level1Button: {fileID: 360884644}
   Level2Button: {fileID: 468904207}
+  acceptSound: {fileID: 8300000, guid: eca3a7c5ec087914d80209b1bc411c7a, type: 3}
+  backSound: {fileID: 8300000, guid: 53736b934a5e6ca4880194944a49938a, type: 3}
+  selectSound: {fileID: 8300000, guid: 10c904fe2fcfbcf49ac71afc6d57bef7, type: 3}
+  quitSound: {fileID: 8300000, guid: d58c3a0b38d7bb84eb1a0e97be415e60, type: 3}
+--- !u!82 &1145681353
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145681347}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.7
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1153431843
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class TankScript : MonoBehaviour
 
     [Space]
     public GameObject projectile = null;
+    public AudioClip missileSound;
+    AudioSource missileShot;
     [Space]
 
     public float projectileSpeed = 100;
@@ -25,7 +27,8 @@ public class TankScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(projectile != null)
+        missileShot = GetComponent<AudioSource>();
+        if (projectile != null)
         {
             LaserBulletScript lbs = projectile.GetComponent<LaserBulletScript>();
             if (lbs != null)
@@ -75,7 +78,9 @@ public class TankScript : MonoBehaviour
                     missile.transform.position = missileExit.position;
                     Destroy(missile, 10);
                     lastShotTime = Time.time + shotDelay;
-				}
+
+                    missileShot.PlayOneShot(missileSound);
+                }
 
 
             }   

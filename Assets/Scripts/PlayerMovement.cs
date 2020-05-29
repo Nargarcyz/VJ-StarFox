@@ -7,7 +7,7 @@ using DG.Tweening;
 using Cinemachine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
-
+using System.Runtime.ExceptionServices;
 
 enum WeaponTypes
 {
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float boostMult = 1;
 
     float h;
+    private bool first = true;
 
     private float fireSpeed = 0.1F;
     private float nextLaserFire = 0;
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public float lookSpeed = 340;
     public float forwardSpeed = 15;
     public float maxLeanAngle = 10;
+    public AudioClip turboSound;
 
     [Space]
 
@@ -64,9 +66,12 @@ public class PlayerMovement : MonoBehaviour
     private WeaponTypes activeWeapon = WeaponTypes.laser;
     private float weaponChangeDelay = 1f;
     private float lastWeaponChange = 0;
+    public AudioClip laserSound;
+    public AudioClip missileSound;
+    AudioSource playerSounds;
 
 
-	[Space]
+    [Space]
     [Header("UI")]
 	public UiHandlerScript uiHandler;
 	[Space]
@@ -97,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     private bool godMode = false;
     void Start()
     {
+        playerSounds = GetComponent<AudioSource>();
         playerModel = transform.GetChild(0);
         rigidbody = transform.GetComponent<Rigidbody>();
         Physics.IgnoreCollision(laserPrefab.GetComponent<Collider>(),GetComponent<Collider>());
@@ -180,6 +186,11 @@ public class PlayerMovement : MonoBehaviour
         boosting = Input.GetAxis("Boost") > 0;
         if (boosting)
         {
+            if (first)
+            {
+                playerSounds.PlayOneShot(turboSound);
+                first = false;
+            }
             Boost(Input.GetAxis("Boost"));
             
         }
@@ -187,6 +198,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Brake(Input.GetAxis("Brake"));
         }
+        else first = true;
 
         if (!boosting)
         {
@@ -222,7 +234,9 @@ public class PlayerMovement : MonoBehaviour
 					if(Time.time > nextLaserFire){
 						ShootLaser();
 						nextLaserFire = Time.time + fireSpeed;
-					}
+
+                        playerSounds.PlayOneShot(laserSound);
+                    }
 					break;
 				case WeaponTypes.missile:
 					if (lockedTarget != null)
@@ -237,6 +251,8 @@ public class PlayerMovement : MonoBehaviour
                             missile.GetComponent<HomingMissileScript>().setSpeed(4000);
                             uiHandler.ResetReticle();
                             // lockedTarget = null;
+
+                            playerSounds.PlayOneShot(missileSound);
                         }
 						
 					}
@@ -327,15 +343,6 @@ public class PlayerMovement : MonoBehaviour
         laser.transform.position = rightBlaster.transform.position; 
         laser.transform.rotation = Quaternion.LookRotation(aimLocationRight- rightBlaster.position);
         Destroy(laser,3);
-
-
-        
-
-
-
-
-
-
 
     }
 

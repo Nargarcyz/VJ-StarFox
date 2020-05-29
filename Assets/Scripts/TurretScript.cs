@@ -15,8 +15,9 @@ public class TurretScript : MonoBehaviour
 
     [Space]
     public GameObject projectile = null;
+    public AudioClip laserSound;
+    AudioSource laserShot;
     [Space]
-
 
     public Transform turretHeadRotor = null;
     public Transform restPosition = null;
@@ -29,6 +30,7 @@ public class TurretScript : MonoBehaviour
 
     void Start()
     {
+        laserShot = GetComponent<AudioSource>();
         if(projectile != null)
         {
             projectile.GetComponent<LaserBulletScript>().setSpeed(projectileSpeed);
@@ -96,6 +98,8 @@ public class TurretScript : MonoBehaviour
                     ShootLaser(leftBlaster);
                     ShootLaser(rightBlaster);
                     lastShotTime = Time.time;
+
+                    laserShot.PlayOneShot(laserSound);
                 }
             }
 
