@@ -10,7 +10,6 @@ public class KamikazeEnemy : MonoBehaviour
     public GameObject target;
     public Rigidbody rb;
     public float spaceshipSpeed = 20f;
-    public bool friendly = false;
 
     private int count = 0;
 
@@ -41,7 +40,7 @@ public class KamikazeEnemy : MonoBehaviour
             count = 0;
         }
 
-        if (playerDistance < 200)
+        if (playerDistance < 150)
         {
             rb.position += transform.forward * spaceshipSpeed * Time.deltaTime;
         }
