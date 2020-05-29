@@ -64,9 +64,12 @@ public class PlayerMovement : MonoBehaviour
     private WeaponTypes activeWeapon = WeaponTypes.laser;
     private float weaponChangeDelay = 1f;
     private float lastWeaponChange = 0;
+    public AudioClip laserSound;
+    public AudioClip missileSound;
+    AudioSource weaponShot;
 
 
-	[Space]
+    [Space]
     [Header("UI")]
 	public UiHandlerScript uiHandler;
 	[Space]
@@ -93,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
     private bool godMode = false;
     void Start()
     {
+        weaponShot = GetComponent<AudioSource>();
         playerModel = transform.GetChild(0);
         rigidbody = transform.GetComponent<Rigidbody>();
         Physics.IgnoreCollision(laserPrefab.GetComponent<Collider>(),GetComponent<Collider>());
@@ -211,7 +215,9 @@ public class PlayerMovement : MonoBehaviour
 					if(Time.time > nextLaserFire){
 						ShootLaser();
 						nextLaserFire = Time.time + fireSpeed;
-					}
+
+                        weaponShot.PlayOneShot(laserSound);
+                    }
 					break;
 				case WeaponTypes.missile:
 					if (lockedTarget != null)
@@ -226,6 +232,8 @@ public class PlayerMovement : MonoBehaviour
                             missile.GetComponent<HomingMissileScript>().setSpeed(4000);
                             uiHandler.ResetReticle();
                             // lockedTarget = null;
+
+                            weaponShot.PlayOneShot(missileSound);
                         }
 						
 					}
