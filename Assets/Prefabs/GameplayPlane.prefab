@@ -233,6 +233,7 @@ MonoBehaviour:
   lookSpeed: 10000
   forwardSpeed: 15
   maxLeanAngle: 10
+  turboSound: {fileID: 8300000, guid: e02622b12f48b2a4f9d12172a1006d38, type: 3}
   aimTarget: {fileID: 2580602512877771158}
   dolly: {fileID: 2580602512760713799}
   cinemachineVirtualCamera: {fileID: 2580602513528004541}
@@ -243,8 +244,8 @@ MonoBehaviour:
     type: 3}
   missilePrefab: {fileID: 3348117731686666246, guid: 55d493ca682a821448ddedde6f59c86d,
     type: 3}
-  laserSound: {fileID: 8300000, guid: 91a71e81097746047bddd83454c29a85, type: 3}
-  missileSound: {fileID: 0}
+  laserSound: {fileID: 8300000, guid: b59e4b84241936a4ebad658b83de2aad, type: 3}
+  missileSound: {fileID: 8300000, guid: 28388cf19a10ab34a9f31f993e9a053a, type: 3}
   uiHandler: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   velocityVector: {x: 0, y: 0, z: 0}
@@ -289,7 +290,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0

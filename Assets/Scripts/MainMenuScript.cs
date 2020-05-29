@@ -19,8 +19,16 @@ public class MainMenuScript : MonoBehaviour
     public Button Level1Button;
     public Button Level2Button;
 
+    public AudioClip acceptSound;
+    public AudioClip backSound;
+    public AudioClip selectSound;
+    public AudioClip quitSound;
+
+    AudioSource panelSounds;
+
     void Start()
     {
+        panelSounds = GetComponent<AudioSource>();
         camera.transform.position = focusedObject.transform.position;
         camera.transform.LookAt(focusedObject.transform,camera.transform.up);
         camera.transform.position = camera.transform.position + new Vector3(0,3,distance);
@@ -62,14 +70,18 @@ public class MainMenuScript : MonoBehaviour
 
 
     public void ExposeLevels(){
+
         if (levelSelector.alpha == 1)
         {
             levelSelector.alpha = 0;
             levelSelector.blocksRaycasts = false;
+
+            panelSounds.PlayOneShot(backSound);
         } else {
             levelSelector.alpha = 1;
             levelSelector.blocksRaycasts = true;
-            
+
+            panelSounds.PlayOneShot(acceptSound);
         }
     }
 
@@ -77,7 +89,8 @@ public class MainMenuScript : MonoBehaviour
     public void LoadLevel (string level){
         StartCoroutine(AsyncLevelLoad(level));
         loadingSpinner.GetComponent<CanvasGroup>().alpha = 1;
-        
+
+        panelSounds.PlayOneShot(selectSound);
     }
 
     IEnumerator AsyncLevelLoad(string level){
@@ -87,6 +100,7 @@ public class MainMenuScript : MonoBehaviour
     }
 
     public void QuitGame(){
+        panelSounds.PlayOneShot(quitSound);
         Application.Quit();
     }
 
@@ -95,9 +109,13 @@ public class MainMenuScript : MonoBehaviour
         {
             settingsWindow.alpha = 0;
             settingsWindow.blocksRaycasts = false;
+
+            panelSounds.PlayOneShot(backSound);
         } else {
             settingsWindow.alpha = 1;
             settingsWindow.blocksRaycasts = true;
+
+            panelSounds.PlayOneShot(acceptSound);
         }
 
         aboutWindow.alpha = 0;
@@ -109,9 +127,13 @@ public class MainMenuScript : MonoBehaviour
         {
             aboutWindow.alpha = 0;
             aboutWindow.blocksRaycasts = false;
+
+            panelSounds.PlayOneShot(backSound);
         } else {
             aboutWindow.alpha = 1;
             aboutWindow.blocksRaycasts = true;
+
+            panelSounds.PlayOneShot(acceptSound);
         }
 
         settingsWindow.alpha = 0;
