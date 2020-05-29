@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
                             missile.transform.GetComponent<Rigidbody>().AddForce(new Vector3(0,100,0));
                             missile.GetComponent<HomingMissileScript>().setSpeed(4000);
                             uiHandler.ResetReticle();
-                            lockedTarget = null;
+                            // lockedTarget = null;
                         }
 						
 					}
@@ -275,9 +275,12 @@ public class PlayerMovement : MonoBehaviour
 
 	GameObject SearchMissileTarget(){
 		LayerMask mask = (1<<11);
+        mask |= (1<<10);
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, 1000f,mask))
         {
+            if (hit.transform.tag != "Enemy") return null;
+
             Debug.DrawRay(transform.position, transform.forward*Vector3.Distance(transform.position,hit.transform.position),Color.red,4f);
 			return hit.transform.gameObject;
         } else {
