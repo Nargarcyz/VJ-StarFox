@@ -8,6 +8,7 @@ public class GameStatus : MonoBehaviour
     public static GameStatus Instance;
     public bool Level1Completed = false;
     public bool Level2Completed = false;
+    public bool GodMode = false;
     // Start is called before the first frame update
     void Awake(){
         if (Instance == null)

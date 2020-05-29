@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         Physics.IgnoreCollision(laserPrefab.GetComponent<Collider>(),GetComponent<Collider>());
         // SetSpeed(forwardSpeed);
         currentHp = maxHp;
+        godMode = GameStatus.Instance.GodMode;
     }
 
     void FixedUpdate()

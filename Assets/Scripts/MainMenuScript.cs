@@ -13,6 +13,8 @@ public class MainMenuScript : MonoBehaviour
     public float distance;
     public GameObject loadingSpinner;
     public CanvasGroup levelSelector;
+    public CanvasGroup aboutWindow;
+    public CanvasGroup settingsWindow;
 
     public Button Level1Button;
     public Button Level2Button;
@@ -88,5 +90,48 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void ToggleSettingsWindow(){
+        if (settingsWindow.alpha == 1)
+        {
+            settingsWindow.alpha = 0;
+            settingsWindow.blocksRaycasts = false;
+        } else {
+            settingsWindow.alpha = 1;
+            settingsWindow.blocksRaycasts = true;
+        }
+
+        aboutWindow.alpha = 0;
+        aboutWindow.blocksRaycasts = false;
+    }
+
+    public void ToggleAboutWindow(){
+        if (aboutWindow.alpha == 1)
+        {
+            aboutWindow.alpha = 0;
+            aboutWindow.blocksRaycasts = false;
+        } else {
+            aboutWindow.alpha = 1;
+            aboutWindow.blocksRaycasts = true;
+        }
+
+        settingsWindow.alpha = 0;
+        settingsWindow.blocksRaycasts = false;
+        
+
+    }
+
+    public void GodModeEnabledByDefault(bool gm){
+        Debug.Log("GodMode enabled: " + gm);
+        GameStatus.Instance.GodMode = gm;
+    }
+
+    public void AllLevelsUnlocked(bool bValue){
+        if (bValue)
+        {
+            Level2Button.interactable = true;
+        } else {
+            Level2Button.interactable = false;
+        }
+    }
     
 }
