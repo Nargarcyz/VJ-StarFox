@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private float nextLaserFire = 0;
 
 	private GameObject lockedTarget = null;
-	private float targetLockTime = 0;
 	private float targetShootDelay = 1f;
     private float lastMissileTime = 0;
 
@@ -92,9 +91,6 @@ public class PlayerMovement : MonoBehaviour
     private float lastHitTime = 0;
     private float naturalRegenLastTime = 0;
     
-
-    private float keyPressCooldown = 0.5f;
-    private float lastKeyPress = 0;
 
     private float boostOverheat = 0;
     private float boostFillRate = 100f;

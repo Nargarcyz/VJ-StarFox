@@ -28,7 +28,6 @@ public class HomingMissileScript : MonoBehaviour
     void Update()
     {
         rb.velocity = transform.forward * missileSpeed * Time.deltaTime;
-        // Vector3 direction = target.transform.position - transform.position;
         if (target != null)
         {
             
@@ -39,16 +38,7 @@ public class HomingMissileScript : MonoBehaviour
             } else {
                 transform.LookAt(target.transform.position);
             }
-            // transform.DOLookAt(target.transform.position,0.3f);
-            // rb.AddForce(transform.forward * missileSpeed);
-            // rb.velocity = transform.forward * missileSpeed;
-        } else if (target == null) {
-            float rotateAngle = 3f;
-            // transform.Rotate(new Vector3(Random.Range(-rotateAngle,rotateAngle),Random.Range(-rotateAngle,rotateAngle),Random.Range(-rotateAngle,rotateAngle)));
-            // transform.DORotate(new Vector3(Random.Range(-rotateAngle,rotateAngle),Random.Range(-rotateAngle,rotateAngle),0),1f);
-            // transform.Rotate(new Vector3(Random.Range(0,3),Random.Range(0,3),Random.Range(0,3)));
-            // rb.AddForce(transform.forward * missileSpeed);
-            // rb.velocity = transform.forward * missileSpeed;
+
         }
 
     }
