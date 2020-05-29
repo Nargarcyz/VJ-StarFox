@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip laserSound;
     public AudioClip missileSound;
     AudioSource playerSounds;
+    AudioSource boostSound;
 
 
     [Space]
@@ -95,10 +96,19 @@ public class PlayerMovement : MonoBehaviour
     private float keyPressCooldown = 0.5f;
     private float lastKeyPress = 0;
 
+    private float boostOverheat = 0;
+    private float boostFillRate = 100f;
+    private bool boosting = false;
+    private bool overheated = false;
+    private float boostCoolDown = 0;
+
     private bool godMode = false;
     void Start()
     {
         playerSounds = GetComponent<AudioSource>();
+        playerSounds.volume = 0.2f;
+        boostSound = gameObject.AddComponent<AudioSource>();
+        boostSound.volume = 0.5f;
         playerModel = transform.GetChild(0);
         rigidbody = transform.GetComponent<Rigidbody>();
         Physics.IgnoreCollision(laserPrefab.GetComponent<Collider>(),GetComponent<Collider>());
@@ -178,22 +188,53 @@ public class PlayerMovement : MonoBehaviour
         RotationLook(h,v, lookSpeed);
         HorizontalLean(playerModel, h, maxLeanAngle, .1f);
 
+        Debug.Log("BoostOverheat: " + boostOverheat);
+        if (boostOverheat == 100)
+        {
+            overheated = true;
+            boosting = false;
+        }
 
-        
-        if (Input.GetAxis("Boost") > 0)
+        if (!overheated)
+        {
+            boosting = Input.GetAxis("Boost") > 0;
+            
+        } else {
+            boostCoolDown += 0.5f * Time.deltaTime;
+            Boost(Mathf.Lerp(1,0,boostCoolDown));
+            if (boostOverheat == 0)
+            {
+                overheated = false;
+            }
+        }
+
+        if (boosting)
         {
             if (first)
             {
-                playerSounds.PlayOneShot(turboSound);
+                boostSound.clip = turboSound;
+                boostSound.Play();
                 first = false;
             }
             Boost(Input.GetAxis("Boost"));
+            
         }
         else if (Input.GetAxis("Brake") > 0)
         {
             Brake(Input.GetAxis("Brake"));
         }
         else first = true;
+
+        if (!boosting)
+        {
+            // boostOverheat = boostOverheat - boostFillRate * Time.deltaTime;
+            if (boostSound.isPlaying && boostSound.clip == turboSound)
+            {
+                boostSound.Stop();
+                
+            }
+            UpdateBoostOverheat(-boostFillRate);
+        }
 
         if (Input.GetButton("SwapWeapon"))
         {
@@ -442,7 +483,8 @@ public class PlayerMovement : MonoBehaviour
         float speed = forwardSpeed * Mathf.Pow(2,mult);
         float zoom = -7 * mult;
 
-
+        // boostOverheat = boostOverheat + boostFillRate * mult * Time.deltaTime;
+        
         bool state = mult > 0.3;
         float origFov = state ? 40 : 55;
         float endFov = state ? 55 : 40;
@@ -454,6 +496,7 @@ public class PlayerMovement : MonoBehaviour
 
         DOVirtual.Float(dolly.m_Speed, speed, .15f, SetSpeed);
         SetCameraZoom(zoom, .4f);
+        UpdateBoostOverheat(boostFillRate*mult);
     }
 
     void Brake(float mult)
@@ -474,5 +517,12 @@ public class PlayerMovement : MonoBehaviour
         currentHp -= damage;
         uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
         
+    }
+
+    public void UpdateBoostOverheat(float change){
+        boostOverheat = boostOverheat + change * Time.deltaTime;
+        if (boostOverheat > 100) boostOverheat = 100;
+        else if (boostOverheat < 0) boostOverheat = 0;
+        uiHandler.UpdateBoost(boostOverheat/100);
     }
 }

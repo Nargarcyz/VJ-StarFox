@@ -514,7 +514,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.096, y: 0.3551133}
-  m_AnchorMax: {x: 0.9038857, y: 0.44740888}
+  m_AnchorMax: {x: 0.9038857, y: 0.45476198}
   m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 4, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1250,8 +1250,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8312460}
   m_HandleRect: {fileID: 8312459}
   m_Direction: 2
-  m_Value: 0.9999749
-  m_Size: 0.6057794
+  m_Value: 0.9999819
+  m_Size: 0.45597613
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2571,31 +2571,27 @@ MonoBehaviour:
 
     Controls:
 
-    - WASD or  Left Joystick
-    to move the Arwing.
+    - WASD or  Left Joystick to move the Arwing.
 
-    - Q/E or LB/RB to Barrel Roll to the Left/Right. If
-    moving in that same direction, you obtain a small bo
+    - Q/E or LB/RB to Barrel Roll to the Left/Right. If moving in that same direction,
+    you obtain a small bo
 
     ost.
 
-    - Left Shift/Left
-    Control or  RT/LT for boosting/braking.
+    - Left Shift/Left Control or  RT/LT for boosting/braking.
 
     - Left click or X button for shooting.
 
-    -
-    Right click or B button for locking into a target. Required for shooting missiles.
+    - Right click or B button for locking into a target. Required for shooting missiles.
 
 
     CHEATS:
 
 
-    -
-    Pressing C in any level will mark it as complete
+    - Pressing C in any level will mark it as complete
 
-    - Pressing Right Control
-    + G enables GodMode, negating any damage done to the player.'
+    - Pressing Right Control + G enables GodMode, negating any damage done to the
+    player.'
 --- !u!222 &1057216422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3033,10 +3029,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3167,7 +3163,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06441577, y: 0.17871946}
   m_AnchorMax: {x: 0.29212087, y: 0.6900719}
-  m_AnchoredPosition: {x: 1.2199097, y: 4}
+  m_AnchoredPosition: {x: 1.2198486, y: 4}
   m_SizeDelta: {x: -0.4729004, y: 0.6706238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274235727
@@ -3601,10 +3597,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3743,10 +3739,10 @@ RectTransform:
   m_Father: {fileID: 1145681351}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 143.83, y: 69.11}
-  m_SizeDelta: {x: 150, y: 62.657104}
+  m_AnchorMin: {x: 0.07917475, y: 0.02983286}
+  m_AnchorMax: {x: 0.2617614, y: 0.17871946}
+  m_AnchoredPosition: {x: 0.82995605, y: -0.005004883}
+  m_SizeDelta: {x: 0, y: 2.6571045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665318475
 MonoBehaviour:
@@ -4025,10 +4021,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 6
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4175,10 +4171,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4231,7 +4227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.096, y: 0.09360496}
   m_AnchorMax: {x: 0.9038857, y: 0.18016696}
-  m_AnchoredPosition: {x: 0, y: 3.1000366}
+  m_AnchoredPosition: {x: 0, y: 3.1000519}
   m_SizeDelta: {x: 4, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025408022

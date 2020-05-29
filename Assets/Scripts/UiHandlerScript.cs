@@ -11,9 +11,10 @@ public class UiHandlerScript : MonoBehaviour
 
 
 
-    public UnityEngine.UI.Image HealthBarPercent;
+    public Image HealthBarPercent;
+    public Image BoostBarPercent;
     [Range(0.0f, 1.0f)]
-    public float percent;
+    // public float percent;
 
     public CanvasGroup ReticleGroup;
     public Image Reticle;
@@ -37,6 +38,9 @@ public class UiHandlerScript : MonoBehaviour
         // HealthBarPercent.fillAmount = percent;
         Color barColor = new Color(1 - HealthBarPercent.fillAmount, HealthBarPercent.fillAmount, 0);
         HealthBarPercent.color = barColor;
+
+        barColor = new Color(BoostBarPercent.fillAmount, 1-BoostBarPercent.fillAmount, 1-BoostBarPercent.fillAmount);
+        BoostBarPercent.color = barColor;
 
         if (Input.GetButtonDown("Cancel"))
         {
@@ -67,6 +71,9 @@ public class UiHandlerScript : MonoBehaviour
 
     public void UpdateHealth(float percent){
         HealthBarPercent.fillAmount = percent;
+    }
+    public void UpdateBoost(float percent){
+        BoostBarPercent.fillAmount = percent;
     }
 
     public void PlayerDestroyed(){
