@@ -143,6 +143,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetButton("ControllerGodMode"))
+        {
+            Debug.Log("Godmode active");
+            godMode = !godMode;
+        }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             string name = SceneManager.GetActiveScene().name;
