@@ -1,0 +1,356 @@
+* commit 3f9f56bfa3c40f9ccbcdd8dc29bc470627bcf195
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 18:15:03 2020 +0200
+| 
+|     Menu edit
+| 
+* commit 9a4d12769c81204c886371abd52ed590dd755f45
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 18:14:43 2020 +0200
+| 
+|     Additional controller inputs
+| 
+* commit d4c3574e3a1dc581756a49905733dcd5b2530f62
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Fri May 29 17:25:52 2020 +0200
+| 
+|     Kamikazes no funcionan
+| 
+* commit 35ded8e6ad9de4917ed0a7a0655b7512c6ece82b
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Fri May 29 17:02:51 2020 +0200
+| 
+|     Musica menu actualizada
+| 
+* commit 4131a2fb0538b7112040443003b6363b191154b4
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Fri May 29 16:57:57 2020 +0200
+| 
+|     Escenario 2 completado
+| 
+* commit 2db5eec53599eb5d87b1c663dbf55b6ddfc8abc1
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Fri May 29 16:34:05 2020 +0200
+| 
+|     Kamikazes
+|   
+*   commit d66078dce878cd7b1462979804e9c7f056385b7a
+|\  Merge: 965956b 98de703
+| | Author: Pascual10 <sergiopg10@hotmail.es>
+| | Date:   Fri May 29 15:19:42 2020 +0200
+| | 
+| |     Merge branch 'master' of https://github.com/Nargarcyz/VJ-StarFox
+| | 
+| * commit 98de703146a05c1016490325b6489639b4ce2c37
+| | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | Date:   Fri May 29 15:18:17 2020 +0200
+| | 
+| |     Hollow Asteroid prefab
+| | 
+| * commit 5d7eb090a72d5e90a8d733d89730f4ce42c2dc13
+| | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | Date:   Fri May 29 14:33:42 2020 +0200
+| | 
+| |     Reworked boost
+| |   
+| *   commit 2bbc12ca3a38a7879c75ee7cf2cc855ee067c319
+| |\  Merge: 83578cb 6aeda19
+| | | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | | Date:   Fri May 29 14:02:06 2020 +0200
+| | | 
+| | |     Merge branch 'master' of https://github.com/Nargarcyz/VJ-StarFox
+| | | 
+| * | commit 83578cb9b1aa29ca0a725545b9a65d00b3c24c67
+| | | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | | Date:   Fri May 29 14:01:58 2020 +0200
+| | | 
+| | |     Boost Bar base
+| | | 
+* | | commit 965956b7cfebd053acf5002edbc7068e063eddc5
+| |/  Author: Pascual10 <sergiopg10@hotmail.es>
+|/|   Date:   Fri May 29 15:19:37 2020 +0200
+| |   
+| |       Kamikaze
+| | 
+* | commit 6aeda19e05600a901d8bc2eef2eced602c1204c9
+| | Author: Pascual10 <sergiopg10@hotmail.es>
+| | Date:   Fri May 29 13:56:38 2020 +0200
+| | 
+| |     Algunas torretas escenario 2
+| | 
+* | commit afed26312c9fa31fd72e6c15a229c232cd822198
+| | Author: Pascual10 <sergiopg10@hotmail.es>
+| | Date:   Fri May 29 13:40:53 2020 +0200
+| | 
+| |     Sonidos menu
+| | 
+* | commit a09bcf3f7e07de523df0156807211bf775eba860
+|/  Author: Pascual10 <sergiopg10@hotmail.es>
+|   Date:   Fri May 29 13:06:36 2020 +0200
+|   
+|       Sonidos disparos y explosiones
+| 
+* commit 8a2c7e5dc5d36bc86cc8121298e0905b3d1c726e
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Fri May 29 12:20:23 2020 +0200
+| 
+|     Musica
+| 
+* commit 631a94c09756d2f9c6465819d71efd9fd2d35e6d
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 02:39:46 2020 +0200
+| 
+|     Menu Tweak
+| 
+* commit 57d19aad6394a4312f6ac514ab787d1d19f29798
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 02:36:04 2020 +0200
+| 
+|     Fixed missile raycast
+| 
+* commit 96bc345b8611defb7b0fd0d16024356d9da57d58
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 02:30:08 2020 +0200
+| 
+|     Main Menu completed
+| 
+* commit 5e76714d757e0d4b28870de3232cfb9f44fad802
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 01:25:50 2020 +0200
+| 
+|     Arwing materials and planet fixes
+| 
+* commit 4cace9cf7a768170008660eaff81b5afd9fb269a
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 29 00:56:37 2020 +0200
+| 
+|     Escenario1 restructuring
+| 
+* commit d94e926649a79de9dad239635e7df67ad3f26870
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Thu May 28 22:15:28 2020 +0200
+| 
+|     Scene manager escena 2
+| 
+* commit 7ae6fbb0c182cdf0a98ceaad6b64ec47ea9e69f1
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Thu May 28 22:09:24 2020 +0200
+| 
+|     Retoques escena 1
+| 
+* commit b08732b7b31360b888818f404a5815ac4e9f55f3
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Thu May 28 21:17:18 2020 +0200
+| 
+|     Mas changes
+|   
+*   commit 8967dae5018241839c44c20a53732fb5e3e74c71
+|\  Merge: 94131e6 7e86120
+| | Author: Pascual10 <sergiopg10@hotmail.es>
+| | Date:   Thu May 28 21:16:42 2020 +0200
+| | 
+| |     Changes
+| | 
+| * commit 7e86120b8e506b8f2162d675f25a18da59610440
+| | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | Date:   Thu May 28 21:12:55 2020 +0200
+| | 
+| |     Fixed turret tracking
+| | 
+| * commit e0f04d9597f30bf0531b3cc2165d85c200ea4846
+| | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | Date:   Thu May 28 20:57:23 2020 +0200
+| | 
+| |     Natural health regen and rollable lasers
+| | 
+| * commit 00464ab63d0a8b4be15354dd851ba78fd6b2c256
+| | Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| | Date:   Thu May 28 20:34:42 2020 +0200
+| | 
+| |     Explosion on death and kill
+| | 
+* | commit 94131e694ef25d10815b85fbf36767b5a75bc956
+|/  Author: Pascual10 <sergiopg10@hotmail.es>
+|   Date:   Thu May 28 21:15:37 2020 +0200
+|   
+|       Enemigos escenario 1
+| 
+* commit c6844b6f6133d385daade800b20622c5a86375e8
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 19:36:47 2020 +0200
+| 
+|     Tweaked missiles and terrain damage
+| 
+* commit f3dad1c3eb8a403ff42f9ed986916e0f1aab2cd0
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 19:01:43 2020 +0200
+| 
+|     Scene manager for ending levels
+| 
+* commit 90d4b1d2ba6cd25ee485e4e5414d1361888830e4
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 18:14:15 2020 +0200
+| 
+|     Levels can be set as completed
+| 
+* commit 51c5228a71df17e312e45c9c2d06031215ac112f
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Thu May 28 13:46:36 2020 +0200
+| 
+|     + texturas escenario 1
+| 
+* commit e03f73c956572c8f9145d5295f96f52cd38b3852
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 04:26:14 2020 +0200
+| 
+|     Main Menu
+| 
+* commit 711f853fa5a7b5953f933742e35499e9c2510722
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 04:21:58 2020 +0200
+| 
+|     Main Menu
+| 
+* commit cff5bbe799f14496c7619ab9f79731ba51411be8
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 04:21:08 2020 +0200
+| 
+|     Main Menu
+| 
+* commit a8a6f045d0e172035c4b274108a425e5b6780701
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Thu May 28 02:51:13 2020 +0200
+| 
+|     Player death handled, Destroyable enemies
+| 
+* commit 2840d9c860ae862bc5cfe6ae8b051770da953fbf
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 20:57:16 2020 +0200
+| 
+|     Tank Shooting
+| 
+* commit cbba7603b8c9e19e9b811fe9100ed201be0a6e15
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 20:57:04 2020 +0200
+| 
+|     Tank Missile Shooting
+| 
+* commit 32d10722078a9b529ad6a81178eb4e40bbddadde
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 20:41:06 2020 +0200
+| 
+|     Player Missile Shooting
+| 
+* commit ea05ce4fbcbfa3b0a3c431309c985d0e5428d46e
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 20:19:40 2020 +0200
+| 
+|     Missile Material and Shadow Settings Tweaked
+| 
+* commit 2208dd7fdedef9b2ed6bcacf71a32b5bd69bf59a
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 19:53:37 2020 +0200
+| 
+|     Free Tank Area and BarrelRoll Missile evation
+| 
+* commit 4a5551eb4344ab82f12fb0652c795adc5874593e
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 19:46:09 2020 +0200
+| 
+|     Tank Aiming and Basic homing missile
+| 
+* commit 389dca95b05dc48d8c39879d1e76cc1fa20ffc63
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 18:36:17 2020 +0200
+| 
+|     Fixed additional bullet collision bug
+| 
+* commit 75206b0c31cf26b94aef49b21ad9c378dfbc94fe
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 18:21:16 2020 +0200
+| 
+|     Fixed weird bullet collision bug
+| 
+* commit a8b918bf3cdeb3432f38ae2c87b12053cf53dbda
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 15:00:22 2020 +0200
+| 
+|     Tank Model and Prefab
+| 
+* commit bf5e7586317575741bcc82bf2a39c12fbff378bd
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 04:44:19 2020 +0200
+| 
+|     Basic missile targeting, turret line of sight
+| 
+* commit 9f82d3cfc177b9e12d1f7b6f1e95349bfbb1d774
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Wed May 27 01:43:48 2020 +0200
+| 
+|     Escenario1 track edit, UI bar position fix, Plant Assets
+| 
+* commit c2338640208831f1660ccc4067f515e151bec4ef
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Tue May 26 22:02:30 2020 +0200
+| 
+|     Turret in terrain test
+| 
+* commit c3b7b7d2e295e6dea7f80f8ece4395b7a995eb39
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Tue May 26 21:04:27 2020 +0200
+| 
+|     Turret tracking, shooting, and predicting
+| 
+* commit 6b8b7ce8b282d962523f3ee22c895523b959651c
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Tue May 26 19:24:13 2020 +0200
+| 
+|     Following laser turret and test level
+| 
+* commit 90ae683175ff8ae68aa303048f0cd94ec52d219e
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Tue May 26 17:29:05 2020 +0200
+| 
+|     Simple Health Bar
+| 
+* commit 16383b71638607d99f479682a1e7b4b64570a50d
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Mon May 25 18:20:14 2020 +0200
+| 
+|     Laser hit effects
+| 
+* commit cad6c5288a2c010078bf5cb0660cd62fe1ad47a4
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Mon May 25 17:14:20 2020 +0200
+| 
+|     Terrain collision detected
+| 
+* commit 390db9bc33a09fbcdfee4f5ccb97b8d7250740af
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Mon May 25 17:02:09 2020 +0200
+| 
+|     Fixed projectile direction and sun
+| 
+* commit f7bbad9ba01f50dd6f6ccbbc877c3db9a30d1639
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Sun May 24 12:43:22 2020 +0200
+| 
+|     Retoques escena 2
+| 
+* commit 88b64dc46289ff7cf3244d9b2797231bbb12427a
+| Author: Pascual10 <sergiopg10@hotmail.es>
+| Date:   Fri May 22 21:44:54 2020 +0200
+| 
+|     Planetas arreglados
+| 
+* commit 086bfd3c218df4c2b42263e8134a19f59027a875
+| Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+| Date:   Fri May 22 18:53:07 2020 +0200
+| 
+|     fixed?
+| 
+* commit 8086bcd4d203ab7a354680583ff8c7ed3a1927c9
+  Author: Oscar Garcia Toledo <narcyz2048@gmail.com>
+  Date:   Fri May 22 18:48:29 2020 +0200
+  
+      init
