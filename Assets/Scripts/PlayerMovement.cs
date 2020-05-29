@@ -90,6 +90,10 @@ public class PlayerMovement : MonoBehaviour
     private float keyPressCooldown = 0.5f;
     private float lastKeyPress = 0;
 
+    private float boostOverheat = 0;
+    private float boostFillRate = 1f;
+    private bool boosting = false;
+
     private bool godMode = false;
     void Start()
     {
@@ -173,14 +177,21 @@ public class PlayerMovement : MonoBehaviour
         HorizontalLean(playerModel, h, maxLeanAngle, .1f);
 
 
-        
-        if (Input.GetAxis("Boost") > 0)
+        boosting = Input.GetAxis("Boost") > 0;
+        if (boosting)
         {
             Boost(Input.GetAxis("Boost"));
+            
         }
         else if (Input.GetAxis("Brake") > 0)
         {
             Brake(Input.GetAxis("Brake"));
+        }
+
+        if (!boosting)
+        {
+            // boostOverheat = boostOverheat - boostFillRate * Time.deltaTime;
+            UpdateBoostOverheat(-boostFillRate);
         }
 
         if (Input.GetButton("SwapWeapon"))
@@ -435,7 +446,8 @@ public class PlayerMovement : MonoBehaviour
         float speed = forwardSpeed * Mathf.Pow(2,mult);
         float zoom = -7 * mult;
 
-
+        // boostOverheat = boostOverheat + boostFillRate * mult * Time.deltaTime;
+        UpdateBoostOverheat(boostFillRate*mult);
         bool state = mult > 0.3;
         float origFov = state ? 40 : 55;
         float endFov = state ? 55 : 40;
@@ -467,5 +479,9 @@ public class PlayerMovement : MonoBehaviour
         currentHp -= damage;
         uiHandler.UpdateHealth((float)currentHp/(float)maxHp);
         
+    }
+
+    public void UpdateBoostOverheat(float change){
+        boostOverheat = boostOverheat + change * Time.deltaTime;
     }
 }
