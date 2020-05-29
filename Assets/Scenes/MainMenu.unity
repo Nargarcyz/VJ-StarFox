@@ -1250,8 +1250,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8312460}
   m_HandleRect: {fileID: 8312459}
   m_Direction: 2
-  m_Value: 0.9999749
-  m_Size: 0.6057794
+  m_Value: 0.9999767
+  m_Size: 0.57206017
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2586,6 +2586,11 @@ MonoBehaviour:
 
     -
     Right click or B button for locking into a target. Required for shooting missiles.
+
+    -
+    Escape or Start: Toggle pause menu
+
+    - Right control + G or Back: Toggle godmode.
 
 
     CHEATS:
@@ -4408,7 +4413,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126289195}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
