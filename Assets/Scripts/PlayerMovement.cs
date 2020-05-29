@@ -44,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     public float lookSpeed = 340;
     public float forwardSpeed = 15;
     public float maxLeanAngle = 10;
-    public AudioClip turboSound;
+    
+
 
     [Space]
 
@@ -67,10 +68,14 @@ public class PlayerMovement : MonoBehaviour
     private float lastWeaponChange = 0;
     public AudioClip laserSound;
     public AudioClip missileSound;
-    AudioSource playerSounds;
-    AudioSource boostSound;
+    private AudioSource playerSounds;
+    private AudioSource boostSound;
 
-
+    [Space]
+    public AudioClip turboSound;
+    public AudioClip brakeSound;
+    public AudioClip groundDamage;
+    public AudioClip lockSound;
     [Space]
     [Header("UI")]
 	public UiHandlerScript uiHandler;
@@ -341,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
             if (hit.transform.tag != "Enemy") return null;
 
             Debug.DrawRay(transform.position, transform.forward*Vector3.Distance(transform.position,hit.transform.position),Color.red,4f);
+            playerSounds.PlayOneShot(lockSound);
 			return hit.transform.gameObject;
         } else {
 			return null;
@@ -457,6 +463,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 lastCollisionTime = Time.time;
                 DealDamage(1);
+                playerSounds.PlayOneShot(groundDamage);
             }
         }
     }

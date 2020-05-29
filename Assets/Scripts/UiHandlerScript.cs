@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-[ExecuteInEditMode]
 public class UiHandlerScript : MonoBehaviour
 {
 
@@ -26,10 +25,19 @@ public class UiHandlerScript : MonoBehaviour
     
     private bool gamePaused = false;
 
+    public AudioClip pauseSound;
+    public AudioClip damageAlertSound;
+    private AudioSource uiAudio;
+    private AudioSource damageAlert;
+
     // Start is called before the first frame update
     void Start()
     {
         ResetReticle();
+        uiAudio = gameObject.AddComponent<AudioSource>();
+        damageAlert = gameObject.AddComponent<AudioSource>();
+        damageAlert.clip = damageAlertSound;
+        damageAlert.loop = true;
     }
 
     // Update is called once per frame
@@ -50,12 +58,16 @@ public class UiHandlerScript : MonoBehaviour
                 pauseMenu.alpha = 0;
                 pauseMenu.blocksRaycasts = false;
             } else {
+                uiAudio.PlayOneShot(pauseSound);
                 Time.timeScale = 0;
                 pauseMenu.alpha = 1;
                 pauseMenu.blocksRaycasts = true;
             }
             gamePaused = !gamePaused;
         }
+
+        if (HealthBarPercent.fillAmount <= 0.25) damageAlert.Play();
+        else damageAlert.Stop();
 
     }
 

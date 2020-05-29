@@ -233,7 +233,6 @@ MonoBehaviour:
   lookSpeed: 10000
   forwardSpeed: 15
   maxLeanAngle: 10
-  turboSound: {fileID: 8300000, guid: e02622b12f48b2a4f9d12172a1006d38, type: 3}
   aimTarget: {fileID: 2580602512877771158}
   dolly: {fileID: 2580602512760713799}
   cinemachineVirtualCamera: {fileID: 2580602513528004541}
@@ -246,6 +245,10 @@ MonoBehaviour:
     type: 3}
   laserSound: {fileID: 8300000, guid: b59e4b84241936a4ebad658b83de2aad, type: 3}
   missileSound: {fileID: 8300000, guid: 28388cf19a10ab34a9f31f993e9a053a, type: 3}
+  turboSound: {fileID: 8300000, guid: e02622b12f48b2a4f9d12172a1006d38, type: 3}
+  brakeSound: {fileID: 8300000, guid: cc0219d547bb80942956728b72c7c183, type: 3}
+  groundDamage: {fileID: 8300000, guid: 319b068eb00ed03499bb93efdf29ae85, type: 3}
+  lockSound: {fileID: 8300000, guid: e27c42b19c0937e45b6be2b77498cb4b, type: 3}
   uiHandler: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   velocityVector: {x: 0, y: 0, z: 0}

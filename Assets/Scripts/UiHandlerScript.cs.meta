@@ -3,7 +3,15 @@ guid: 330c86b05120dac488feb2c38441c95c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - HealthBarPercent: {instanceID: 0}
+  - BoostBarPercent: {instanceID: 0}
+  - ReticleGroup: {instanceID: 0}
+  - Reticle: {instanceID: 0}
+  - pauseMenu: {instanceID: 0}
+  - DestroyedPanel: {instanceID: 0}
+  - pauseSound: {fileID: 8300000, guid: 8fe3f26c3e3e8e54a83d332fa4c3ae27, type: 3}
+  - damageAlertSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

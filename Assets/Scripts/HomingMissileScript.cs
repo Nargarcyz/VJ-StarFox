@@ -50,7 +50,7 @@ public class HomingMissileScript : MonoBehaviour
             {
                 if (other.tag == "Enemy")
                 {
-                    other.gameObject.GetComponent<HealthManager>().DealDamage(25);
+                    other.gameObject.GetComponent<HealthManager>().DealDamage(50);
                 }
                 Destroy(this.gameObject);
             }
