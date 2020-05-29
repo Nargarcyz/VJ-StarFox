@@ -1069,7 +1069,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ead002839412fe84286cf39c501c7c52, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e09302e4c6881de4389e5b572afe50af, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -1250,8 +1250,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8312460}
   m_HandleRect: {fileID: 8312459}
   m_Direction: 2
-  m_Value: 0.9999819
-  m_Size: 0.45597613
+  m_Value: 0.9999749
+  m_Size: 0.6057794
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2571,27 +2571,31 @@ MonoBehaviour:
 
     Controls:
 
-    - WASD or  Left Joystick to move the Arwing.
+    - WASD or  Left Joystick
+    to move the Arwing.
 
-    - Q/E or LB/RB to Barrel Roll to the Left/Right. If moving in that same direction,
-    you obtain a small bo
+    - Q/E or LB/RB to Barrel Roll to the Left/Right. If
+    moving in that same direction, you obtain a small bo
 
     ost.
 
-    - Left Shift/Left Control or  RT/LT for boosting/braking.
+    - Left Shift/Left
+    Control or  RT/LT for boosting/braking.
 
     - Left click or X button for shooting.
 
-    - Right click or B button for locking into a target. Required for shooting missiles.
+    -
+    Right click or B button for locking into a target. Required for shooting missiles.
 
 
     CHEATS:
 
 
-    - Pressing C in any level will mark it as complete
+    -
+    Pressing C in any level will mark it as complete
 
-    - Pressing Right Control + G enables GodMode, negating any damage done to the
-    player.'
+    - Pressing Right Control
+    + G enables GodMode, negating any damage done to the player.'
 --- !u!222 &1057216422
 CanvasRenderer:
   m_ObjectHideFlags: 0
